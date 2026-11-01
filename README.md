@@ -53,7 +53,7 @@ Versions are never edited after they're listed. To take one back, set `withdrawn
 
 In `catalog.json` an icon's `url` is only its file name. The catalogue's addresses are relative to the catalogue itself, and a GitHub release can't hold folders, so **publish** uploads the icons flat beside `catalog.json`. An icon isn't signed on its own: the signed catalogue gives its SHA-256.
 
-The format is described in the modules guide in **Help** inside WittyMediaServer.
+The format is described in Making a module, in **Help** inside WittyMediaServer.
 
 ## Licence
 
