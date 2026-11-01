@@ -11,7 +11,7 @@ on anyone's server, and its signature doesn't vouch for more than the list.
 ## Where it is
 
 `https://github.com/wittywilla/WittyModuleCatalog/releases/download/catalog/catalog.json`, with `catalog.json.sig`
-beside it. Both are replaced whenever `catalog.json` changes on `main`.
+and the module icons beside it. They are replaced whenever `catalog.json` or an icon changes on `main`.
 
 The format is described in
 [WittyMediaServer's docs/MODULES.md](https://github.com/wittywilla/WittyMediaServer/blob/master/docs/MODULES.md#the-catalogue),
@@ -34,8 +34,16 @@ Versions are never edited after they're listed. To take one back, set `withdrawn
 
 ## Icons
 
-An icon is optional: a PNG of at most 256 KiB in `icons/`, listed with its size and SHA-256. Use the module's own
-mark. Never a console's, disc format's, service's or anyone else's logo.
+Each module's icon is `icons/<id>.png`, drawn by `scripts/make-icons.mjs`: a rounded square in its category's colour
+with one simple white mark. Never a console's, disc format's, service's or anyone else's logo.
+
+`node scripts/make-icons.mjs` draws them all and writes each one's size and SHA-256 into `catalog.json`, and with
+`--check` it fails if the two disagree, which CI and **publish** both test. A new module needs a mark added to that
+script first, and an icon that changes needs `serial` raised, as any other change does.
+
+In `catalog.json` an icon's `url` is only its file name. The catalogue's addresses are relative to the catalogue
+itself, and a GitHub release can't hold folders, so **publish** uploads the icons flat beside `catalog.json`. An icon
+isn't signed on its own: the signed catalogue gives its SHA-256.
 
 WittyModuleCatalog is developed by WittyWilla. Apache-2.0.
 
