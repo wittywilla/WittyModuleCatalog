@@ -20,3 +20,4 @@ jobs:
           check-latest: true
           cache: false
       - run: go run github.com/wittywilla/wittymodule/cmd/wittymodule@v0.3.0 catalog-check catalog.json
+      - run: node scripts/make-icons.mjs --check
