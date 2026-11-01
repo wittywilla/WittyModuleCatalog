@@ -1,0 +1,6 @@
+*.key
+.claude/
+.dev-modules
+go.work
+go.work.sum
+release/

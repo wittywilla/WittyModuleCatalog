@@ -1,0 +1,102 @@
+# Signs catalog.json and replaces it on the catalog release, when it differs from what's there.
+# A commit made by refresh doesn't start a workflow by itself, so this also follows refresh.
+name: publish
+on:
+  push:
+    branches: [main]
+    paths: ["catalog.json", "icons/**"]
+  workflow_run:
+    workflows: [refresh]
+    types: [completed]
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  check:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      changed: ${{ steps.compare.outputs.changed }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        with:
+          go-version: "1.27.x"
+          check-latest: true
+          cache: false
+      - run: go run github.com/wittywilla/wittymodule/cmd/wittymodule@v0.3.0 catalog-check catalog.json
+      - id: compare
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          changed=true
+          if gh release download catalog -R "$GITHUB_REPOSITORY" -p catalog.json -D "$RUNNER_TEMP/now" 2>/dev/null &&
+             cmp -s catalog.json "$RUNNER_TEMP/now/catalog.json"; then
+            changed=false
+          fi
+          echo "changed=$changed" >>"$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        if: steps.compare.outputs.changed == 'true'
+        with:
+          name: catalog
+          path: catalog.json
+          if-no-files-found: error
+
+  # On a clean machine holding only the file and the signing tool at a released version.
+  sign:
+    needs: check
+    if: needs.check.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    environment: release
+    permissions: {}
+    steps:
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        with:
+          go-version: "1.27.x"
+          check-latest: true
+          cache: false
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        with:
+          name: catalog
+          path: signed
+      - name: Sign the catalogue
+        env:
+          SIGNING_KEY: ${{ secrets.WMS_SIGNING_KEY }}
+        run: |
+          if [ -z "$SIGNING_KEY" ]; then
+            echo "::error::The secret WMS_SIGNING_KEY is missing. Nothing was published. Add it to the release environment, then run this again."
+            exit 1
+          fi
+          key="$RUNNER_TEMP/module.key"
+          trap 'rm -f "$key"' EXIT
+          (umask 077; printf '%s\n' "$SIGNING_KEY" > "$key")
+          go run github.com/wittywilla/wittymodule/cmd/wittymodule@v0.3.0 catalog-sign -key "$key" signed/catalog.json
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: signature
+          path: signed/catalog.json.sig
+          if-no-files-found: error
+
+  # Publishing runs no project code at all.
+  publish:
+    needs: sign
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        with:
+          path: out
+          merge-multiple: true
+      - name: Replace the files on the catalog release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view catalog -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 ||
+            gh release create catalog -R "$GITHUB_REPOSITORY" --latest=false --title "Module catalogue" --notes "The signed list of modules. A server reads catalog.json and catalog.json.sig from here."
+          gh release upload catalog -R "$GITHUB_REPOSITORY" --clobber out/catalog.json out/catalog.json.sig
