@@ -2,6 +2,18 @@
 
 The list of modules a WittyMediaServer can install: one signed file, `catalog.json`, saying which modules exist, every version of each, what each is for, what it asks for, which servers it fits and where its files are. You read it through the store in the app. You only need this repository to list a module.
 
+<!-- pictures -->
+
+![The module store in WittyMediaServer](docs/images/module-store.webp)
+
+<sub>What a server makes of this list: its store, here from a local test catalogue.</sub>
+
+![The Modules page in Settings](docs/images/settings-modules.webp)
+
+<sub>Settings, Modules, in WittyMediaServer.</sub>
+
+<!-- /pictures -->
+
 ## What it does
 
 A server's store reads this list. Modules stay in their own repositories, and this one holds none of their code.
