@@ -1,8 +1,8 @@
 {
   "format": 1,
   "name": "WittyMediaServer modules",
-  "serial": 20,
-  "generated": "2026-11-05T19:56:43Z",
+  "serial": 21,
+  "generated": "2026-11-05T21:49:16Z",
   "modules": [
     {
       "id": "wittybluray",
@@ -853,6 +853,76 @@
       "updates": "All of it: the console tables, the game runner, streaming, controllers and the player.",
       "stays": "The games library, its metadata and where saves are kept stay with the server.",
       "versions": [
+        {
+          "version": "0.3.6",
+          "delivery": "helper",
+          "api": 3,
+          "minServer": "0.6.0-alpha",
+          "maxServer": "0.6.x",
+          "license": "Apache-2.0",
+          "permissions": [
+            "network",
+            "programs",
+            "devices",
+            "data"
+          ],
+          "released": "2026-11-05",
+          "sums": "https://github.com/wittywilla/WittyPlay/releases/download/v0.3.6/wittyplay-0.3.6-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyPlay/releases/download/v0.3.6/wittyplay-0.3.6-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyPlay/releases/download/v0.3.6/wittyplay-0.3.6-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.3.6/wittyplay-0.3.6-darwin-amd64.tar.gz",
+              "size": 7562671,
+              "sha256": "e0d9ef346e61a28fa56aaba4c9684bd726f8c3ce14c53ef2569d80762f0dd67c"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.3.6/wittyplay-0.3.6-darwin-arm64.tar.gz",
+              "size": 6984663,
+              "sha256": "391100d98db301f0761c19595f6585fac5d2afa1bf9cb020d525e17d17ac2d4c"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.3.6/wittyplay-0.3.6-freebsd-amd64.tar.gz",
+              "size": 7404292,
+              "sha256": "ad373dfef10a57df7b0c0adec520f46fb80c4b6537ea26335c58cebecc185f19"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.3.6/wittyplay-0.3.6-freebsd-arm64.tar.gz",
+              "size": 6687963,
+              "sha256": "c0da0a561fd998a0c571329c6fa5f85c1c0b4446dd591fe9affd94355b2ddc97"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.3.6/wittyplay-0.3.6-linux-386.tar.gz",
+              "size": 7146068,
+              "sha256": "0eee6adb71d4b01d3e1a4e426a5c34f2db068e99f139e5c9e92aefd728c97035"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.3.6/wittyplay-0.3.6-linux-amd64.tar.gz",
+              "size": 7500477,
+              "sha256": "d6ab3746a461ff1dc47b798f513d0bccab25feeb658b3a391e1a0e0d248a2601"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.3.6/wittyplay-0.3.6-linux-armv7.tar.gz",
+              "size": 7101037,
+              "sha256": "265df9a37b8c17a85d2e17dd700c1c16580e8ef66ebf624c7c1eac6b12562a1a"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.3.6/wittyplay-0.3.6-linux-arm64.tar.gz",
+              "size": 6786465,
+              "sha256": "79a6b5e6539c4335b43be005687176414bfdb8835eea33c3d487415874eca7b5"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.3.6/wittyplay-0.3.6-windows-amd64.zip",
+              "size": 7724477,
+              "sha256": "10e5c3325762c6869721726c8c899347f5ee9b55d24ad8e7eecee40aa1ef286f"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.3.6/wittyplay-0.3.6-windows-arm64.zip",
+              "size": 6917792,
+              "sha256": "aebb98584e403a1f648eb8f625644e881d42f802f527441d1153c81b66ae7634"
+            }
+          }
+        },
         {
           "version": "0.3.5",
           "delivery": "helper",
