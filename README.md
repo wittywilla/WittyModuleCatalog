@@ -69,7 +69,7 @@ The format is described in Making a module, in **Help** inside WittyMediaServer.
 
 ## Licence
 
-Apache-2.0: see [LICENSE](LICENSE) and [NOTICE](NOTICE). If you redistribute it or build on it, keep the NOTICE attribution. The icons are drawn by the script here.
+GNU Affero General Public License v3.0 (or later): see [LICENSE](LICENSE) and [NOTICE](NOTICE). If you redistribute it or build on it, please keep the NOTICE attribution. The icons are drawn by the script here.
 
 ## Legal
 
