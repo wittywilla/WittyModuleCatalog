@@ -10,7 +10,7 @@
 #   scripts/sync-brand.sh --check    change nothing; fail if any is out of date
 #
 # WITTY_SERVER is the WittyMediaServer checkout (default: beside this repository).
-# WITTY_BRAND_CONCEPT picks the design: wink (the one in use), monogram or signal.
+# WITTY_BRAND_CONCEPT picks another design than the one in use (genicon -help lists them).
 set -eu
 here=$(cd "$(dirname "$0")/.." && pwd)
 server=${WITTY_SERVER:-$here/../WittyMediaServer}
@@ -21,6 +21,6 @@ if [ ! -f "$server/scripts/genicon/main.go" ]; then
   exit 1
 fi
 cd "$server"
-go run ./scripts/genicon -target catalog -o "$here" -concept "${WITTY_BRAND_CONCEPT:-wink}" $check
+go run ./scripts/genicon -target catalog -o "$here" ${WITTY_BRAND_CONCEPT:+-concept "$WITTY_BRAND_CONCEPT"} $check
 # The catalogue records each icon's size and SHA-256: bring catalog.json up to date (or check it).
 if [ -z "$check" ]; then node "$here/scripts/make-icons.mjs"; else node "$here/scripts/make-icons.mjs" --check; fi
