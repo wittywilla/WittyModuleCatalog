@@ -65,9 +65,9 @@ go run github.com/wittywilla/wittymodule/cmd/wittymodule catalog-add -catalog ca
 
 Versions are never edited after they're listed. To take one back, set `withdrawn` on it, as well as using the withdraw workflow in the module's own repository, and raise `serial`.
 
-**Icons.** Each module's icon is `icons/<id>.png`, drawn by `scripts/make-icons.mjs`: a rounded square in its category's colour with one simple white mark. Never a console's, disc format's, service's or anyone else's logo.
+**Icons.** Each module's icon is `icons/<id>.png`, drawn by WittyMediaServer's `scripts/genicon`, the one generator for every logo and icon of the family (its `docs/BRAND.md`): the family's rounded tile in the module's category colour, with the same soft light as the apps' icons, one simple white mark, and the family's amber spark in the corner. Never a console's, disc format's, service's or anyone else's logo.
 
-`node scripts/make-icons.mjs` draws them all and writes each one's size and SHA-256 into `catalog.json`, and `--check` fails if the two disagree. A new module needs a mark added to that script first, and an icon that changes needs `serial` raised.
+`scripts/sync-brand.sh` draws them all (with a WittyMediaServer checkout beside this one, or `WITTY_SERVER` set to one) and then runs `node scripts/make-icons.mjs`, which writes each one's size and SHA-256 into `catalog.json`; `--check` on either fails if anything disagrees. A new module needs a mark added to `internal/brandart/modules.go` in WittyMediaServer first, and an icon that changes needs `serial` raised.
 
 In `catalog.json` an icon's `url` is only its file name. The catalogue's addresses are relative to the catalogue itself, and a GitHub release can't hold folders, so **publish** uploads the icons flat beside `catalog.json`. An icon isn't signed on its own: the signed catalogue gives its SHA-256.
 
