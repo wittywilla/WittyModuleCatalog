@@ -67,3 +67,4 @@ while read -r id repo; do
   done
 done <<<"$modules"
 $tool catalog-check catalog.json
+node scripts/check-api.mjs catalog.json

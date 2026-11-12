@@ -32,6 +32,7 @@ jobs:
           cache: false
       - run: go run github.com/wittywilla/wittymodule/cmd/wittymodule@v0.3.0 catalog-check catalog.json
       - run: node scripts/make-icons.mjs --check
+      - run: node scripts/check-api.mjs catalog.json
       - id: compare
         env:
           GH_TOKEN: ${{ github.token }}

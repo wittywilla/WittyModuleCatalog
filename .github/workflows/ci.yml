@@ -29,3 +29,5 @@ jobs:
           cache: false
       - run: go run github.com/wittywilla/wittymodule/cmd/wittymodule@v0.3.0 catalog-check catalog.json
       - run: node scripts/make-icons.mjs --check
+      # Every version's module API is one a server takes, and API 4 versions fit servers that read sdui.json.
+      - run: node scripts/check-api.mjs catalog.json
