@@ -49,6 +49,12 @@ go run github.com/wittywilla/wittymodule/cmd/wittymodule catalog-check catalog.j
 node scripts/make-icons.mjs --check
 ```
 
+```bash
+node scripts/check-api.mjs catalog.json
+```
+
+`check-api.mjs` checks what `catalog-check` leaves to the server: that every version's module API is one a server takes (3 or 4 today), and that a version built for API 4 names a `minServer` that reads `sdui.json`. It also notes which modules have no version for the newest server yet.
+
 **How it changes.** `scripts/refresh.sh` looks at every listed module's GitHub releases and adds any version not yet listed, once that release's signature checks out. The **refresh** workflow runs it four times a day, and when asked from the Actions tab. **publish** then signs the new file and puts it on the `catalog` release.
 
 **To list a new module,** add it to `catalog.json` by hand with `"versions": []` and raise `serial`, or run:
@@ -66,6 +72,25 @@ Versions are never edited after they're listed. To take one back, set `withdrawn
 In `catalog.json` an icon's `url` is only its file name. The catalogue's addresses are relative to the catalogue itself, and a GitHub release can't hold folders, so **publish** uploads the icons flat beside `catalog.json`. An icon isn't signed on its own: the signed catalogue gives its SHA-256.
 
 The format is described in Making a module, in **Help** inside WittyMediaServer.
+
+## Module API 4: every version carries sdui.json
+
+From module API 4, a module carries its own server-driven UI: `sdui.json`, beside `module.json` in its repository and at the root of every archive of a release (`wittymodule pack` puts it there). It holds what the module adds to every app: its pages, rows on the built-in pages, components, data sources, menu entries, settings and its theme scope. The server checks it against its own catalogue of components when the module is installed and before every use, and refuses a version built for API 4 that has none. WittyMediaServer's `docs/SDUI-MODULES.md` describes the file, and WittyModule's SDUI kit (`sdui/` for Go, `kit/sdui/` for web bundles) writes and checks it.
+
+Nothing about this changes the catalogue's own format. A server from 0.8.0-alpha takes module API 3 and 4, so every version listed for API 3 stays valid and installable where its `minServer` and `maxServer` allow; nothing listed needs editing, and versions are never edited anyway.
+
+**What an entry for an API-4 version needs.** It is listed the usual way, by `scripts/refresh.sh` or `catalog-add`, from a signed release, and these fields come from that release's `module.json`, which an install checks them against:
+
+| Field | For an API-4 version |
+|---|---|
+| `api` | `4` |
+| `minServer` | `0.8.0-alpha` or later: the first server that reads `sdui.json`. `check-api.mjs` refuses an earlier one. |
+| `maxServer` | The newest series it was tested with, such as `0.8.x`. |
+| `delivery` | `helper`, `program` or `web` need `sdui.json`. A `library` (such as WittyDisc) is never installed on its own and carries none. |
+| `license` | `AGPL-3.0-or-later` for the project's own modules. |
+| `platforms` | Every archive holds `sdui.json` at its root, covered by the release's signed checksum list like every other file. The catalogue doesn't name it: the server reads it from the installed version's folder. |
+
+Before listing one, check the release with the WittyModule that speaks API 4 (`wittymodule check` on the module's folder requires and checks `sdui.json`). `catalog-check` and `catalog-add` read only the catalogue and the signed manifest, so they work the same for API 3 and 4. The workflows here run them from WittyModule v0.3.0; move that pin, in `ci.yml`, `publish.yml` and `scripts/refresh.sh`, to WittyModule's first release with module API 4 once it is published. The numbers in `check-api.mjs` are raised in the same change as the first version of a newer API.
 
 ## Licence
 
