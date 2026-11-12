@@ -47,8 +47,14 @@ function compare(a, b) {
   return x.pre < y.pre ? -1 : 1
 }
 
-/** Whether a server version is at most maxServer, which may be a series such as 0.8.x. */
+/**
+ * Whether a server version is at most maxServer, which may be a series such as 0.8.x. As a
+ * server reads it (internal/modules/widen.go), a pre-1.0 series such as 0.6.x stands for any
+ * 0.x server: before 1.0 the module API number decides what fits, not the minor version.
+ */
 function atMost(server, max) {
+  if (/^0\.\d+\.x$/.test(max)) max = '0.x'
+  if (max === '0.x') return String(server).startsWith('0.')
   const m = /^(\d+)\.(\d+)\.x$/.exec(max)
   if (m) {
     const [maj, min] = String(server).split('.').map(Number)
