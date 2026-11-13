@@ -28,7 +28,7 @@ set -euo pipefail
 cd "$(git rev-parse --show-toplevel)"
 
 : "${MODULE_PUBLIC_KEY:?the public key modules are signed with}"
-tool=${WITTYMODULE:-go run github.com/wittywilla/wittymodule/cmd/wittymodule@v0.3.0}
+tool=${WITTYMODULE:-go run github.com/wittywilla/wittymodule/cmd/wittymodule@v0.4.0}
 
 # Is this version of this module in the catalogue already?
 listed() {
