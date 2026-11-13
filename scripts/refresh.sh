@@ -1,4 +1,22 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: AGPL-3.0-or-later
+#
+# WittyModuleCatalog - The signed list of modules a WittyMediaServer can install.
+# Copyright (C) 2026 WittyWilla and contributors
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published
+# by the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program. If not, see <https://www.gnu.org/licenses/>.
+
 # Adds every released version of every listed module that isn't listed yet. Each release has
 # to pass catalog-add's checks first: signed with the module key, and its files matching that
 # signed list. Nothing is ever changed or removed here.
@@ -10,7 +28,7 @@ set -euo pipefail
 cd "$(git rev-parse --show-toplevel)"
 
 : "${MODULE_PUBLIC_KEY:?the public key modules are signed with}"
-tool=${WITTYMODULE:-go run github.com/wittywilla/wittymodule/cmd/wittymodule@v0.3.0}
+tool=${WITTYMODULE:-go run github.com/wittywilla/wittymodule/cmd/wittymodule@v0.4.0}
 
 # Is this version of this module in the catalogue already?
 listed() {
@@ -49,3 +67,4 @@ while read -r id repo; do
   done
 done <<<"$modules"
 $tool catalog-check catalog.json
+node scripts/check-api.mjs catalog.json
