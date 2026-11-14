@@ -33,23 +33,14 @@ test('an integration summary holds only what a server reads, within its limits',
   }
 })
 
-test('only API 5 versions carry an integration summary', () => {
-  const [p] = one(version({ api: 4, integration: summary })).problems
-  assert.match(p, /built for module API 4/)
-})
-
-test('modules whose newest version is for an older API are noted, not refused', () => {
-  const r = one(version({ version: '0.2.1', api: 3, minServer: '0.6.0-alpha', maxServer: '0.6.x', ui: undefined }))
-  assert.deepEqual(r.problems, [])
-  assert.deepEqual(r.oldAPI, ['wittycouch 0.2.1 (API 3)'])
-  // Once an API 5 version is listed, the module needs nothing more.
-  const r2 = one(version({ version: '0.2.1', api: 3, minServer: '0.6.0-alpha', maxServer: '0.6.x' }), version({ integration: summary }))
-  assert.deepEqual(r2.oldAPI, [])
+test('a version for module API 3 or 4 is refused: servers take only API 5', () => {
+  assert.match(one(version({ api: 4, integration: summary })).problems[0], /module API 4, and servers take 5 to 5/)
+  assert.match(one(version({ version: '0.2.1', api: 3, minServer: '0.6.0-alpha', maxServer: '0.6.x' })).problems[0], /module API 3, and servers take 5 to 5/)
 })
 
 test('the API range, minServer and status are still checked', () => {
-  assert.match(one(version({ api: 6, integration: summary })).problems[0], /servers take 3 to 5/)
+  assert.match(one(version({ api: 6, integration: summary })).problems[0], /servers take 5 to 5/)
   assert.match(one(version({ minServer: '0.7.0-alpha', integration: summary })).problems[0], /minServer must be 0\.8\.0-alpha/)
   assert.match(one(version({ status: 'incomplete', integration: summary })).problems[0], /statusNote/)
-  assert.deepEqual(one(version({ api: 4, ui: undefined })).noUI, ['wittycouch 0.4.0'])
+  assert.deepEqual(one(version({ ui: undefined, integration: summary })).noUI, ['wittycouch 0.4.0'])
 })

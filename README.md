@@ -96,7 +96,7 @@ Nothing about this changes the catalogue's own format. Versions are never edited
 | `status`, `statusNote` | Copied from the manifest, when it says them. See below. |
 | `ui` | A summary of its `sdui.json`, written by `catalog-add`. See below. |
 
-Before listing one, check the release with `wittymodule check` on the module's folder, which requires and checks `sdui.json` (and, for API 5, `integration.json`). The workflows here run WittyModule v0.5.2, pinned in `ci.yml`, `publish.yml` and `scripts/refresh.sh`. The numbers in `check-api.mjs` are raised in the same change as the first version of a newer API.
+Before listing one, check the release with `wittymodule check` on the module's folder, which requires and checks `sdui.json` (and, for API 5, `integration.json`). The workflows here run WittyModule v0.5.4, pinned in `ci.yml`, `publish.yml` and `scripts/refresh.sh`. The numbers in `check-api.mjs` are raised in the same change as the first version of a newer API.
 
 ## How finished a version is, and what it adds: `status` and `ui`
 
@@ -123,7 +123,7 @@ From module API 4 a version can say how finished it is, and its entry here says 
 
 A server goes by the release itself, never by these copies: it reads the status from the signed manifest it downloads, and installs an `experimental` or `incomplete` version only after an administrator reads the note and agrees. So an entry's `status` can't make a version look more finished than it is, and leaving `status` out of an entry hides nothing.
 
-`check-api.mjs` refuses a status a server doesn't know, and an `experimental` or `incomplete` version without a note. A reader that doesn't know these fields ignores them, so the catalogue's format stays 1. `catalog-add` from WittyModule v0.5.2, which the workflows pin, writes them; `check-api.mjs` notes a version with `sdui.json` that has no `ui`.
+`check-api.mjs` refuses a status a server doesn't know, and an `experimental` or `incomplete` version without a note. A reader that doesn't know these fields ignores them, so the catalogue's format stays 1. `catalog-add` from WittyModule v0.5.2 and later, which the workflows pin (v0.5.4), writes them; `check-api.mjs` notes a version with `sdui.json` that has no `ui`.
 
 ## Module API 5: every version says what it adds to a server
 

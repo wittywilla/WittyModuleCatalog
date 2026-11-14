@@ -27,7 +27,7 @@ jobs:
           go-version: "1.27.x"
           check-latest: true
           cache: false
-      - run: go run github.com/wittywilla/wittymodule/cmd/wittymodule@v0.5.2 catalog-check catalog.json
+      - run: go run github.com/wittywilla/wittymodule/cmd/wittymodule@v0.5.4 catalog-check catalog.json
       - run: node scripts/make-icons.mjs --check
       # Every version's module API is one a server takes, API 4 versions fit servers that read
       # sdui.json, and API 5 versions have the integration summary the store shows.

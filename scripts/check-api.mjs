@@ -30,7 +30,7 @@
 import fs from 'node:fs'
 import { fileURLToPath } from 'node:url'
 
-export const MIN_API = 3
+export const MIN_API = 5
 export const MAX_API = 5
 export const SDUI_FROM_API = 4
 export const INTEGRATION_FROM_API = 5
