@@ -1,8 +1,8 @@
 {
   "format": 1,
   "name": "WittyMediaServer modules",
-  "serial": 55,
-  "generated": "2026-11-15T00:21:09Z",
+  "serial": 56,
+  "generated": "2026-11-15T03:54:33Z",
   "modules": [
     {
       "id": "wittybluray",
@@ -1042,6 +1042,167 @@
       "updates": "All of it: the console tables, the game runner, streaming, controllers, the player, and every WittyPlay screen in the web app (its frame, pages, game pictures and settings).",
       "stays": "The games library, its metadata and where saves are kept stay with the server.",
       "versions": [
+        {
+          "version": "0.7.2",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "permissions": [
+            "network",
+            "programs",
+            "devices",
+            "data"
+          ],
+          "released": "2026-11-15",
+          "changelog": "- **A virtual gamepad plays a game in the tests.** `web/tests/virtualpad.test.ts` stubs the browser's Gamepad API (`navigator.getGamepads`) with a standard pad, presses Start, Select, A and the left stick through the web player's input, and checks each state it sends; `host/virtualpad_test.go` plays those same states into the game runner with the test core and checks the game took them (Start counted, the LED and rumble, the square moving). Both read `testdata/virtual-pad.json`, whose NES controls are checked against the console table, so CI covers the way from a pad to a game with no server.\n- **Friends: invites, and batteries.** Someone playing a game invites a friend by name from Together (`POST /games/online/friends/{user}/invite`; Invite, then Invited with Cancel the invite, on the friend's card); the friend sees it under Invites, and in the status bar, with Accept (the game's page with `?invite=`, which joins as a seat) and Decline. An invite lasts ten minutes or until the game ends. A friend whose room is open has Join on their card, and someone who joined a room has Play (`/game/{id}?join={session}`, which the web player now plays as a seat). New commands `wittyplay.friend.invite`, `wittyplay.invite.accept`, `wittyplay.invite.decline`, `wittyplay.invite.cancel`, and source `wittyplay.invites`. The status bar and the game menu show each controller's battery where the browser gives one, and this device's (`navigator.getBattery`), as a level in words; one running low is shown over the game and said once, politely.\n- **Refresh game details, in one click.** An administrator refreshes a whole games library (its page's Refresh game details, `POST`/`GET /libraries/{id}/details/refresh`) or one game (its page, `POST /games/{id}/metadata/refresh`): every source is asked again from the start, so titles in their own script and in English, box art, logos and details come back fresh, and every picture is downloaded again. A match picked by hand and fields people typed stay. It runs as the host task \"Finding out about games\", and the library's button says how far it has got. The item editor's Refresh and a Full rescan (`scan.describe` with `refresh`) do the same. On every app: the SDUI source `wittyplay.refresh` (a row on `wittyplay-library` and, inserted, on a game's `detail` page) with the commands `wittyplay.library.refresh` and `wittyplay.game.refresh`.\n- **Console photos from Wikimedia are off until an administrator opts in.** They used to follow the brand-logo agreement. Now they have a switch of their own, beside a notice saying what is fetched (each console's name to Wikidata, one photo from Wikimedia Commons), from where, and the licences (Creative Commons or public domain, with author and licence shown): in WittyPlay's Settings (Console photos) and its first-run step, on the web and in the SDUI pages `wittyplay-settings` and `wittyplay-setup` (source `wittyplay.consolePhotos`, commands `wittyplay.consolePhotos.on` and `.off`, `GET`/`PUT /games/console-photos`). Nothing is fetched while it's off, and turning it off deletes the photos kept. The first-run step's version is now 2, so it shows again.\n- Finding out about games and looking for console logos show in the server's activity panel again. Their reports named the task by its title (\"Finding out about games\"), which the host's tasks route refuses, so neither ever showed; they're `game-details` and `brand-logos` now, with the title sent beside the name.",
+          "sums": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.2/wittyplay-0.7.2-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.2/wittyplay-0.7.2-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.2/wittyplay-0.7.2-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.2/wittyplay-0.7.2-darwin-amd64.tar.gz",
+              "size": 13116096,
+              "sha256": "d8ed6bde88a52464f0fb32fd534cf707f76ef73674bf71a64a83ccba9d925eca"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.2/wittyplay-0.7.2-darwin-arm64.tar.gz",
+              "size": 12307129,
+              "sha256": "b580bc71034a624bca7149fca0a5b26a9bf6d62d0dfab79599eaad8c86e14503"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.2/wittyplay-0.7.2-freebsd-amd64.tar.gz",
+              "size": 12768474,
+              "sha256": "936658ebbbc92419d0950ac6ac5dd075e80902a5e64d3bb1a5479f1c8749e825"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.2/wittyplay-0.7.2-freebsd-arm64.tar.gz",
+              "size": 11712830,
+              "sha256": "6c6db13b57fc3c8837a4f524917aaca68673c1aec4a4fcc57368db87cb534ff0"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.2/wittyplay-0.7.2-linux-386.tar.gz",
+              "size": 12288767,
+              "sha256": "b27362eb107e17652506fb83961a64d6f3216c9915c1196d6a3e0f22af696e7a"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.2/wittyplay-0.7.2-linux-amd64.tar.gz",
+              "size": 13007638,
+              "sha256": "d223a1ecbb7e7815d872fa1818d9bf72ac3bcb324465b0b53c131ca29cb12315"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.2/wittyplay-0.7.2-linux-armv7.tar.gz",
+              "size": 12313296,
+              "sha256": "5526eae403ff1e7e669ed554556cc06adb92497713a2be222b63f517106bd305"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.2/wittyplay-0.7.2-linux-arm64.tar.gz",
+              "size": 11952742,
+              "sha256": "ae995b07bf09e47cdc3e98173ea0bacf14300b93236367dd38b1a5326cb19712"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.2/wittyplay-0.7.2-windows-amd64.zip",
+              "size": 13251759,
+              "sha256": "25a18979d99513ba7d9a10fe59faeb961df9d2f06300735ff99fc13c3c334b29"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.2/wittyplay-0.7.2-windows-arm64.zip",
+              "size": 12033714,
+              "sha256": "0a683d2dbd2d8ec08285074f3a9325e806308d300d67811e3fafd17df9920ff7"
+            }
+          },
+          "ui": {
+            "pages": [
+              {
+                "id": "wittyplay",
+                "title": "What this server plays"
+              },
+              {
+                "id": "wittyplay-online",
+                "title": "WittyPlay Online"
+              },
+              {
+                "id": "wittyplay-controllers",
+                "title": "Controllers"
+              },
+              {
+                "id": "wittyplay-library",
+                "title": "{library}"
+              },
+              {
+                "id": "wittyplay-settings",
+                "title": "Settings"
+              },
+              {
+                "id": "wittyplay-store",
+                "title": "Cores & emulators"
+              },
+              {
+                "id": "wittyplay-store-console",
+                "title": "{title}"
+              },
+              {
+                "id": "wittyplay-setup",
+                "title": "Set up games"
+              },
+              {
+                "id": "wittyplay-quick",
+                "title": "Menu"
+              },
+              {
+                "id": "wittyplay-room",
+                "title": "Your room"
+              },
+              {
+                "id": "wittyplay-memory",
+                "title": "Memory"
+              },
+              {
+                "id": "wittyplay-keep",
+                "title": "Keep this screenshot"
+              },
+              {
+                "id": "wittyplay-privacy",
+                "title": "Friends and what you play"
+              },
+              {
+                "id": "wittyplay-kids",
+                "title": "Friends"
+              }
+            ],
+            "navigation": [
+              "Games"
+            ],
+            "settings": true,
+            "sources": 18,
+            "inserts": 2
+          },
+          "integration": {
+            "routes": 125,
+            "screens": [
+              "/wittyplay/*",
+              "/page/wittyplay",
+              "/page/wittyplay-*",
+              "/games",
+              "/game/:id",
+              "/controllers",
+              "/games/library/:id",
+              "/games/game/:id",
+              "/big/*"
+            ],
+            "settings": [
+              "Games & emulators",
+              "Game metadata",
+              "My game settings"
+            ],
+            "data": true,
+            "feature": "games",
+            "scans": [
+              "games"
+            ]
+          }
+        },
         {
           "version": "0.7.1",
           "delivery": "helper",
