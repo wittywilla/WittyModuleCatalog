@@ -1,8 +1,8 @@
 {
   "format": 1,
   "name": "WittyMediaServer modules",
-  "serial": 54,
-  "generated": "2026-11-14T23:18:42Z",
+  "serial": 55,
+  "generated": "2026-11-15T00:21:09Z",
   "modules": [
     {
       "id": "wittybluray",
@@ -456,7 +456,7 @@
     {
       "id": "wittydisc",
       "name": "WittyDisc",
-      "summary": "Reads DVD and Blu-ray images without mounting them. The disc modules are built on it.",
+      "summary": "The disc player WittyDVD and WittyBluray share, with a disc's real menus and its remote, and the library they read images with.",
       "description": "Reads DVD and Blu-ray disc images (.iso and .img) without mounting them, and finds every file inside. A very large file is read in place, never copied. WittyDVD and WittyBluray are built on it.\n\nThere is nothing to use on its own: new versions reach a server inside those two modules. It doesn't decrypt anything, and no media comes with it.",
       "icon": {
         "url": "wittydisc.png",
@@ -468,10 +468,38 @@
         "url": "https://github.com/wittywilla"
       },
       "repo": "wittywilla/WittyDisc",
-      "group": "system",
+      "group": "discs",
       "core": true,
-      "updates": "Nothing on its own: new versions reach a server inside WittyDVD and WittyBluray.",
-      "versions": []
+      "updates": "The disc player in the web app, Settings' DVDs and Blu-rays, and a disc's own tools (Disc settings, names of its titles and scenes). The library reaches a server inside WittyDVD and WittyBluray.",
+      "stays": "The disc sessions the player opens, the streams and the refusal of encrypted discs stay with the server, on purpose; so do the settings themselves, which the server's sessions read.",
+      "versions": [
+        {
+          "version": "0.3.2",
+          "delivery": "web",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "released": "2026-11-15",
+          "changelog": "- Signed with the module key: 0.3.1 was signed with another key, so no server could install it.",
+          "sums": "https://github.com/wittywilla/WittyDisc/releases/download/v0.3.2/wittydisc-0.3.2-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyDisc/releases/download/v0.3.2/wittydisc-0.3.2-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyDisc/releases/download/v0.3.2/wittydisc-0.3.2-module.json",
+          "platforms": {
+            "all": {
+              "url": "https://github.com/wittywilla/WittyDisc/releases/download/v0.3.2/wittydisc-0.3.2-web.tar.gz",
+              "size": 412566,
+              "sha256": "64f78c9dad9e2cf3ba58708487b59f9715de98c11fc94758c8014c449a37b680"
+            }
+          },
+          "ui": {},
+          "integration": {
+            "settings": [
+              "DVDs and Blu-rays"
+            ]
+          }
+        }
+      ]
     },
     {
       "id": "wittydvd",
