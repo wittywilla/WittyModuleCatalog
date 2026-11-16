@@ -7,24 +7,22 @@
 //
 //   - its `api` is one a server takes today (MIN_API to MAX_API), so nothing listed is
 //     a version no server can install;
-//   - a version built for module API 4 or newer that a server installs (helper, program,
-//     web) carries sdui.json, which only servers from FIRST_SERVER[api] read, so its
-//     minServer is at least that;
-//   - a version built for module API 5 or newer that a server installs carries
-//     integration.json, and its entry has the `integration` summary `wittymodule catalog-add`
+//   - a version that a server installs (helper, program, web) carries sdui.json, which only
+//     servers from FIRST_SERVER[api] read, so its minServer is at least that;
+//   - a version that a server installs carries integration.json, and its entry has the `integration` summary `wittymodule catalog-add`
 //     writes from it, within the limits a server holds it to: the store's "What this adds";
 //   - its `status`, when it has one, is stable, beta, experimental or incomplete, and an
 //     experimental or incomplete version says why in `statusNote`: one line of plain text of
 //     at most 500 characters, which the store shows before anyone installs it;
 //   - as notes: which modules have no version for the newest server series, which have no
-//     version for the newest module API yet (they need a new release), and which API-4-or-newer
+//     version for the newest module API yet (they need a new release), and which installed
 //     versions have no `ui` summary of their sdui.json.
 //
 //   node scripts/check-api.mjs [catalog.json]
 //
-// The numbers are WittyModule's (manifest.go: API, MinAPI, SDUIFromAPI; integration.go:
-// IntegrationFromAPI; catalog.go: the summary's limits) and the server's
-// (internal/modules/sdui.go). Raise them here in the same change that lists the first version
+// Servers take module API 5 only, with no backwards compatibility, and every API 5 version
+// carries sdui.json and integration.json. The numbers are WittyModule's (manifest.go: API,
+// MinAPI; catalog.go: the summary's limits) and the server's (internal/modules/sdui.go). Raise them here in the same change that lists the first version
 // of a new API.
 
 import fs from 'node:fs'
@@ -32,10 +30,10 @@ import { fileURLToPath } from 'node:url'
 
 export const MIN_API = 5
 export const MAX_API = 5
-export const SDUI_FROM_API = 4
+export const SDUI_FROM_API = 5
 export const INTEGRATION_FROM_API = 5
 // The first server each API runs on.
-export const FIRST_SERVER = { 3: '0.6.0-alpha', 4: '0.8.0-alpha', 5: '0.8.0-alpha' }
+export const FIRST_SERVER = { 5: '0.8.0-alpha' }
 // The newest server series; the note lists modules with no version for it.
 export const NEWEST_SERVER = '0.8.0-alpha'
 // A version's status (WittyModule manifest.go: Status*, MaxStatusNote).
