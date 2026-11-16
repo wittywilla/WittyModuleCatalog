@@ -1,8 +1,8 @@
 {
   "format": 1,
   "name": "WittyMediaServer modules",
-  "serial": 56,
-  "generated": "2026-11-15T03:54:33Z",
+  "serial": 57,
+  "generated": "2026-11-16T05:06:57Z",
   "modules": [
     {
       "id": "wittybluray",
@@ -473,6 +473,32 @@
       "updates": "The disc player in the web app, Settings' DVDs and Blu-rays, and a disc's own tools (Disc settings, names of its titles and scenes). The library reaches a server inside WittyDVD and WittyBluray.",
       "stays": "The disc sessions the player opens, the streams and the refusal of encrypted discs stay with the server, on purpose; so do the settings themselves, which the server's sessions read.",
       "versions": [
+        {
+          "version": "0.3.3",
+          "delivery": "web",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "released": "2026-11-16",
+          "changelog": "- DVD menu: Resume and Play movie are normal-sized buttons in one row with Remote and the settings, as the host's player bar lays them out (they were stretched across two rows). The web test runs on Windows.",
+          "sums": "https://github.com/wittywilla/WittyDisc/releases/download/v0.3.3/wittydisc-0.3.3-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyDisc/releases/download/v0.3.3/wittydisc-0.3.3-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyDisc/releases/download/v0.3.3/wittydisc-0.3.3-module.json",
+          "platforms": {
+            "all": {
+              "url": "https://github.com/wittywilla/WittyDisc/releases/download/v0.3.3/wittydisc-0.3.3-web.tar.gz",
+              "size": 412646,
+              "sha256": "bc3b786c0187aabcd76114bfd8d716f23be47f2016a4a4e82f5c6b710c474558"
+            }
+          },
+          "ui": {},
+          "integration": {
+            "settings": [
+              "DVDs and Blu-rays"
+            ]
+          }
+        },
         {
           "version": "0.3.2",
           "delivery": "web",
