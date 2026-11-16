@@ -6,7 +6,7 @@ The list of modules a WittyMediaServer can install: one signed file, `catalog.js
 
 ![The module store in WittyMediaServer](docs/images/module-store.webp)
 
-<sub>What a server makes of this list: its store, here from a local test catalogue.</sub>
+<sub>What a server makes of this list: its store, here showing this catalogue.</sub>
 
 ![The Modules page in Settings](docs/images/settings-modules.webp)
 
