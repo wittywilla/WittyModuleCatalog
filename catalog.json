@@ -1,8 +1,8 @@
 {
   "format": 1,
   "name": "WittyMediaServer modules",
-  "serial": 57,
-  "generated": "2026-11-16T05:06:57Z",
+  "serial": 59,
+  "generated": "2026-11-16T22:12:42Z",
   "modules": [
     {
       "id": "wittybluray",
@@ -33,6 +33,83 @@
       "updates": "All of the engine: playlists and clips, running a disc's program and its Java programs, reading menus and subtitles; and a Blu-ray's page: its sections in every app, why a playlist is the film, and the names given to its playlists and chapters, kept in its own database.",
       "stays": "Drawing menus into pictures stays with the server, and so does refusing encrypted discs and checking what the engine says, on purpose. The session code that turns steps into streams stays too. Which playlist is a disc's film, and an administrator's choice of another, are kept with the server's copy of the disc.",
       "versions": [
+        {
+          "version": "0.5.1",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "permissions": [
+            "programs",
+            "data"
+          ],
+          "released": "2026-11-16",
+          "changelog": "- The engine (package `wittybluray`) no longer links the module's service: its commands are described by the new package `commands`, which has no networking, so WittyMediaPlayer's helper contains no network code. A test keeps it so.\n- Tests: TestDual closes the database it leaves open, so the tests pass on Windows (#6).",
+          "sums": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-darwin-amd64.tar.gz",
+              "size": 6669198,
+              "sha256": "f48d24c7d4713411cf919c60cfa3f41049eb8caafc5172563f2111ed57b363ce"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-darwin-arm64.tar.gz",
+              "size": 6253349,
+              "sha256": "58ff981850bc1730485ac3a6859ed5717e858e04ab2c2918f5ceb2994b5f6221"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-freebsd-amd64.tar.gz",
+              "size": 6489255,
+              "sha256": "a21144519e58ae6625172710f58f7b3f61b42096983227a645a81a6d7e8a5dd7"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-freebsd-arm64.tar.gz",
+              "size": 5956158,
+              "sha256": "1bf1a55769af2beb8b8657b7f64aac055750f7bb8c2a4857720224c8c69e5ebb"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-linux-386.tar.gz",
+              "size": 6326415,
+              "sha256": "96b33a31fdc79fb31b4372b39b10e100da9b17864f035ef927d1e6726bc464d9"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-linux-amd64.tar.gz",
+              "size": 6625251,
+              "sha256": "9d96ca8247c20c8825ed7a442e7dac9366906de9238862a88ba5ca5106daabbb"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-linux-armv7.tar.gz",
+              "size": 6349116,
+              "sha256": "1244db8be97639cfe1feca54befc4fe086161e1cb49829518593a763a646fc73"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-linux-arm64.tar.gz",
+              "size": 6075217,
+              "sha256": "d00e2204df9f1b30ca071e6d7288e6d4134d845dbcb465d65bc4113f876a9b71"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-windows-amd64.zip",
+              "size": 6764603,
+              "sha256": "c944be319dcfb1eebdeba62e1de0ad28fd46bd244d7d1ff0bd8d66cd7a9604ea"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-windows-arm64.zip",
+              "size": 6127034,
+              "sha256": "fbe44863b4ee825c8923523908dc155a0c1851cbd50fe237499bb0c6f0cfb57b"
+            }
+          },
+          "ui": {
+            "sources": 9,
+            "inserts": 9
+          },
+          "integration": {
+            "routes": 6,
+            "data": true
+          }
+        },
         {
           "version": "0.5.0",
           "delivery": "helper",
@@ -555,6 +632,82 @@
       "updates": "All of the engine: the disc's structure, menus, buttons and commands, where its video lies, and subtitles; and a DVD's page: its sections in every app, why a title is the film, and the names given to its titles and chapters, kept in its own database.",
       "stays": "The session code that turns steps into streams stays with the server, as does refusing encrypted discs and checking what the engine says, on purpose. Which title is a disc's film, and an administrator's choice of another, are kept with the server's copy of the disc.",
       "versions": [
+        {
+          "version": "0.5.1",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "permissions": [
+            "data"
+          ],
+          "released": "2026-11-16",
+          "changelog": "- The engine (package `wittydvd`) no longer links the module's service: its commands are described by the new package `commands`, which has no networking, so WittyMediaPlayer's helper contains no network code. A test keeps it so.\n- Tests: TestDual closes the database it leaves open, so the tests pass on Windows (#4).",
+          "sums": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-darwin-amd64.tar.gz",
+              "size": 5992786,
+              "sha256": "e3c56c5b8b87964248deba66176c26d0bac0bae02597542c5fa983736bdd7e00"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-darwin-arm64.tar.gz",
+              "size": 5586911,
+              "sha256": "1c92659eb9651570adf0007218a7cbabaea5a73fd57168d4cb079667a33e78f2"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-freebsd-amd64.tar.gz",
+              "size": 5868120,
+              "sha256": "6ef68d2bd6c19343d0ce78aabc98e2af20ca5cb2e3afe8110faa2da70c580960"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-freebsd-arm64.tar.gz",
+              "size": 5360335,
+              "sha256": "f5b5b787fa08007686d3ae69c95de5cf2cc20c5226267c571ca39dbff767a128"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-linux-386.tar.gz",
+              "size": 5713971,
+              "sha256": "a6afe7436adf3ffbd30697a52cf5cdacde34f398be14ce11a96b530339ca784e"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-linux-amd64.tar.gz",
+              "size": 5991558,
+              "sha256": "f4c62c3b822855c031bf923104b9263b7dc5f7878cfc33c68f5d7c0b4e106aae"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-linux-armv7.tar.gz",
+              "size": 5730092,
+              "sha256": "d04f48e2dbb293730893e5e6a1a2eeecc3ee8e25310c8632fe22dc77012f25da"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-linux-arm64.tar.gz",
+              "size": 5473125,
+              "sha256": "e6c39f9610fadfc3da5738701fac246de6cca8ebf235c7958f08bb4f5591e9ec"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-windows-amd64.zip",
+              "size": 6079948,
+              "sha256": "dd972cd8987ad41792fbaca41edbe5138730b2724b9161044e8c1d2e43bdfe18"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-windows-arm64.zip",
+              "size": 5507575,
+              "sha256": "d551f6068218636e98c80701f44b20257f15f2d45e3953f35f7c9f267ea3ca8d"
+            }
+          },
+          "ui": {
+            "sources": 9,
+            "inserts": 9
+          },
+          "integration": {
+            "routes": 5,
+            "data": true
+          }
+        },
         {
           "version": "0.5.0",
           "delivery": "helper",
