@@ -1,8 +1,8 @@
 {
   "format": 1,
   "name": "WittyMediaServer modules",
-  "serial": 56,
-  "generated": "2026-11-15T03:54:33Z",
+  "serial": 78,
+  "generated": "2026-11-23T18:17:47Z",
   "modules": [
     {
       "id": "wittybluray",
@@ -33,6 +33,160 @@
       "updates": "All of the engine: playlists and clips, running a disc's program and its Java programs, reading menus and subtitles; and a Blu-ray's page: its sections in every app, why a playlist is the film, and the names given to its playlists and chapters, kept in its own database.",
       "stays": "Drawing menus into pictures stays with the server, and so does refusing encrypted discs and checking what the engine says, on purpose. The session code that turns steps into streams stays too. Which playlist is a disc's film, and an administrator's choice of another, are kept with the server's copy of the disc.",
       "versions": [
+        {
+          "version": "0.5.2",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "permissions": [
+            "programs",
+            "data"
+          ],
+          "released": "2026-11-23",
+          "changelog": "- **Safer disc menus on Linux:** the Java runtime for disc menus runs in namespaces of its own where the system allows them: without network, without other programs' shared memory, and ending with the server.",
+          "sums": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.2/wittybluray-0.5.2-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.2/wittybluray-0.5.2-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.2/wittybluray-0.5.2-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.2/wittybluray-0.5.2-darwin-amd64.tar.gz",
+              "size": 6670254,
+              "sha256": "69665e8a376831ca25203b158d3552c5a0977fb4e1bbd0f6c90b477a6d701bf8"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.2/wittybluray-0.5.2-darwin-arm64.tar.gz",
+              "size": 6253803,
+              "sha256": "baafcf9767a1acfdbaf9bde6347010a6f3f162eb9c0c71016ec261cb283041e6"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.2/wittybluray-0.5.2-freebsd-amd64.tar.gz",
+              "size": 6489726,
+              "sha256": "af8001a10007c3a1af35c938218241934e5df416c06fc702d7b0d9afc051a31d"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.2/wittybluray-0.5.2-freebsd-arm64.tar.gz",
+              "size": 5956517,
+              "sha256": "d4ea0f8aa78fbf5e41cb91217aff75171a4406f589337349011754494d0fb756"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.2/wittybluray-0.5.2-linux-386.tar.gz",
+              "size": 6323321,
+              "sha256": "5acdb349e1fbf8f092eccdd17756203318dfb4b647a1ab662b18b1b5c25977d8"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.2/wittybluray-0.5.2-linux-amd64.tar.gz",
+              "size": 6626775,
+              "sha256": "d7808bd331fbd2518893ffed7c58fc3662abd06f0a3be78a0bb8976ab1397899"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.2/wittybluray-0.5.2-linux-armv7.tar.gz",
+              "size": 6337119,
+              "sha256": "e6e29fb7b072c3b3f261dc1df4276004e775833999ffbffb8d8a83d7f3199299"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.2/wittybluray-0.5.2-linux-arm64.tar.gz",
+              "size": 6077779,
+              "sha256": "5c404a2731b9e93bd98f819e3bf18ac97622939aae863722ca049ead6d86380f"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.2/wittybluray-0.5.2-windows-amd64.zip",
+              "size": 6765022,
+              "sha256": "35bdb5a62d4e76a15472071d163feb47fd485aeff4069c583177a8a7faaacb96"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.2/wittybluray-0.5.2-windows-arm64.zip",
+              "size": 6126278,
+              "sha256": "a9583977da1942044c0e64a6d47a41cb6e1ef9d0e3ae7d64bb2763f314d99138"
+            }
+          },
+          "ui": {
+            "sources": 9,
+            "inserts": 9
+          },
+          "integration": {
+            "routes": 6,
+            "data": true
+          }
+        },
+        {
+          "version": "0.5.1",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "permissions": [
+            "programs",
+            "data"
+          ],
+          "released": "2026-11-16",
+          "changelog": "- The engine (package `wittybluray`) no longer links the module's service: its commands are described by the new package `commands`, which has no networking, so WittyMediaPlayer's helper contains no network code. A test keeps it so.\n- Tests: TestDual closes the database it leaves open, so the tests pass on Windows (#6).",
+          "sums": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-darwin-amd64.tar.gz",
+              "size": 6669198,
+              "sha256": "f48d24c7d4713411cf919c60cfa3f41049eb8caafc5172563f2111ed57b363ce"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-darwin-arm64.tar.gz",
+              "size": 6253349,
+              "sha256": "58ff981850bc1730485ac3a6859ed5717e858e04ab2c2918f5ceb2994b5f6221"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-freebsd-amd64.tar.gz",
+              "size": 6489255,
+              "sha256": "a21144519e58ae6625172710f58f7b3f61b42096983227a645a81a6d7e8a5dd7"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-freebsd-arm64.tar.gz",
+              "size": 5956158,
+              "sha256": "1bf1a55769af2beb8b8657b7f64aac055750f7bb8c2a4857720224c8c69e5ebb"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-linux-386.tar.gz",
+              "size": 6326415,
+              "sha256": "96b33a31fdc79fb31b4372b39b10e100da9b17864f035ef927d1e6726bc464d9"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-linux-amd64.tar.gz",
+              "size": 6625251,
+              "sha256": "9d96ca8247c20c8825ed7a442e7dac9366906de9238862a88ba5ca5106daabbb"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-linux-armv7.tar.gz",
+              "size": 6349116,
+              "sha256": "1244db8be97639cfe1feca54befc4fe086161e1cb49829518593a763a646fc73"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-linux-arm64.tar.gz",
+              "size": 6075217,
+              "sha256": "d00e2204df9f1b30ca071e6d7288e6d4134d845dbcb465d65bc4113f876a9b71"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-windows-amd64.zip",
+              "size": 6764603,
+              "sha256": "c944be319dcfb1eebdeba62e1de0ad28fd46bd244d7d1ff0bd8d66cd7a9604ea"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyBluray/releases/download/v0.5.1/wittybluray-0.5.1-windows-arm64.zip",
+              "size": 6127034,
+              "sha256": "fbe44863b4ee825c8923523908dc155a0c1851cbd50fe237499bb0c6f0cfb57b"
+            }
+          },
+          "ui": {
+            "sources": 9,
+            "inserts": 9
+          },
+          "integration": {
+            "routes": 6,
+            "data": true
+          }
+        },
         {
           "version": "0.5.0",
           "delivery": "helper",
@@ -135,6 +289,166 @@
       "updates": "All of the engine (reading images, playing them as one stream, its FLAC encoder), the CD player in the web app, and finding which album a disc is, on every app.",
       "stays": "Asking MusicBrainz and fetching covers, the stream's FFmpeg conversion and how a library shows a disc stay with the server: the process that reads an image never has a network.",
       "versions": [
+        {
+          "version": "0.3.3",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "released": "2026-11-23",
+          "changelog": "- **No computer keys on a television.** In TV mode the CD player no longer lists the keyboard's shortcut keys. They still work, and a computer still lists them.",
+          "sums": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.3/wittycd-0.3.3-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.3/wittycd-0.3.3-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.3/wittycd-0.3.3-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.3/wittycd-0.3.3-darwin-amd64.tar.gz",
+              "size": 3903480,
+              "sha256": "a454cbcd224c15eae6d2e79002162086b0d836e0ec09a2655144257b8e7b277f"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.3/wittycd-0.3.3-darwin-arm64.tar.gz",
+              "size": 3596490,
+              "sha256": "7582c7241e2131cbb2b99b3f46bea50928ab3e5343adf524f6646194d56b0120"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.3/wittycd-0.3.3-freebsd-amd64.tar.gz",
+              "size": 3818343,
+              "sha256": "c312df23f21f0735c09799ee8997f8700efe4800114bb29ce05f527b04938844"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.3/wittycd-0.3.3-freebsd-arm64.tar.gz",
+              "size": 3439907,
+              "sha256": "274df75d97931a93c8d3469fadc55ff97a3e7af1480c9830831aeebafae4a00c"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.3/wittycd-0.3.3-linux-386.tar.gz",
+              "size": 3711241,
+              "sha256": "aab51c4e03e7fc36b256a6f1c80d07f5eb5b5f9d3b1fcb13727e4591c77b1d3e"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.3/wittycd-0.3.3-linux-amd64.tar.gz",
+              "size": 3840038,
+              "sha256": "55383e8331acfa621f462eb21405bbe1fc832fb097f1aa2a3aed64d6b0296cbd"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.3/wittycd-0.3.3-linux-armv7.tar.gz",
+              "size": 3739173,
+              "sha256": "fb75c5efb5afbf085dea8c15e48e4662dd9d4519b95efe28b87626efaf4fb361"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.3/wittycd-0.3.3-linux-arm64.tar.gz",
+              "size": 3463134,
+              "sha256": "6a8d5f6ac2dd37950bc86a81a86ebb0a7789e2fea67c915baf6637a27f7edb3b"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.3/wittycd-0.3.3-windows-amd64.zip",
+              "size": 3973011,
+              "sha256": "9e4db8aa074610e9b0d85358ec99798872e46ce52f8e1850db0099681f533be1"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.3/wittycd-0.3.3-windows-arm64.zip",
+              "size": 3551636,
+              "sha256": "377a1fc69ca70d53279aac49fb2afdefa25f8c439bde967c1f9710661faca420"
+            }
+          },
+          "ui": {
+            "pages": [
+              {
+                "id": "wittycd-identify",
+                "title": "Find this album"
+              }
+            ],
+            "sources": 1
+          },
+          "integration": {
+            "routes": 2,
+            "screens": [
+              "/cd/:id"
+            ]
+          }
+        },
+        {
+          "version": "0.3.2",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "released": "2026-11-23",
+          "changelog": "- **Fixed: CD rips with a cue sheet** play when the sheet names a .wav that the folder has as .flac or another sound file. A sheet naming a file that isn't there is skipped quietly.",
+          "sums": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.2/wittycd-0.3.2-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.2/wittycd-0.3.2-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.2/wittycd-0.3.2-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.2/wittycd-0.3.2-darwin-amd64.tar.gz",
+              "size": 3903647,
+              "sha256": "90c464ce889dba7e98fa91b2cc5c61eee359a91d9dd446d9851d60444aac7b19"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.2/wittycd-0.3.2-darwin-arm64.tar.gz",
+              "size": 3594633,
+              "sha256": "2937f913c805b6a12ddeb25354d4816260bd58ce3e816d0724f8b92254433930"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.2/wittycd-0.3.2-freebsd-amd64.tar.gz",
+              "size": 3818078,
+              "sha256": "408240459c977b7d48c410e77bd0a80fa70a332bebdd3339a5015dffca67b7f8"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.2/wittycd-0.3.2-freebsd-arm64.tar.gz",
+              "size": 3439500,
+              "sha256": "aa18836dd890d3eefcee2b3c2f80d8602552f7f4c9f3ef6795852c682fc3929c"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.2/wittycd-0.3.2-linux-386.tar.gz",
+              "size": 3711349,
+              "sha256": "80bfa9ef3a49e3e54d33b2727fa4fa8d449d7cf662dc467080217cf2cc9bba60"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.2/wittycd-0.3.2-linux-amd64.tar.gz",
+              "size": 3840267,
+              "sha256": "6574595b3732849769029027035a7e20ae292013e2f36c72df520ae4df7ac398"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.2/wittycd-0.3.2-linux-armv7.tar.gz",
+              "size": 3738794,
+              "sha256": "c82608e74d7744eefa8115f32bd6ee1822f84cb239a6230da522a840aca05932"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.2/wittycd-0.3.2-linux-arm64.tar.gz",
+              "size": 3462887,
+              "sha256": "2702f4597ed471688eb49b5a431f124949805d9ee90bdccda1952f7b0777a27a"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.2/wittycd-0.3.2-windows-amd64.zip",
+              "size": 3972874,
+              "sha256": "de1a207b9cd0b10a1e2657c07871caba4f14534fcab60acdefbac71d0db1706f"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyCD/releases/download/v0.3.2/wittycd-0.3.2-windows-arm64.zip",
+              "size": 3551604,
+              "sha256": "fcb2684e6f55899cf69c8fa39e3c60c32e2247e46fcb9bb2ba3f2d1030ee5725"
+            }
+          },
+          "ui": {
+            "pages": [
+              {
+                "id": "wittycd-identify",
+                "title": "Find this album"
+              }
+            ],
+            "sources": 1
+          },
+          "integration": {
+            "routes": 2,
+            "screens": [
+              "/cd/:id"
+            ]
+          }
+        },
         {
           "version": "0.3.1",
           "delivery": "helper",
@@ -243,6 +557,30 @@
       "stays": "The Reader page and the host it provides, and how the server takes a book apart.",
       "versions": [
         {
+          "version": "0.4.3",
+          "delivery": "web",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "released": "2026-11-23",
+          "changelog": "- **Back on any TV remote closes the comic.** Some remotes' Back button did nothing in the reader; now every remote's Back works, as Esc does on a keyboard. Back no longer also leaves the page before it, as it could with some remotes.\n- **Spreads stay paired.** Moving to a page with the slider, End or a place kept from single pages no longer shifts every spread by one, and going back no longer skips a page.\n- **A page on its way shows a turning circle** instead of a blank screen while the server unpacks the comic.\n- **On a television,** the reading settings explain the remote's arrows and Back, not taps and swipes.",
+          "sums": "https://github.com/wittywilla/WittyComics/releases/download/v0.4.3/wittycomics-0.4.3-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyComics/releases/download/v0.4.3/wittycomics-0.4.3-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyComics/releases/download/v0.4.3/wittycomics-0.4.3-module.json",
+          "platforms": {
+            "all": {
+              "url": "https://github.com/wittywilla/WittyComics/releases/download/v0.4.3/wittycomics-0.4.3-web.tar.gz",
+              "size": 20383,
+              "sha256": "a0ddc0db3e034cd6b4c84620c7242a0c1dc886d93940a70bda38693f668e332e"
+            }
+          },
+          "ui": {
+            "settings": true
+          },
+          "integration": {}
+        },
+        {
           "version": "0.4.1",
           "delivery": "web",
           "api": 5,
@@ -290,6 +628,106 @@
       "updates": "All of it: connecting to PCs, pairing, the streams, its settings, and its screens in the web app and on every app (Game PCs).",
       "stays": "Nothing: your PCs, pairings and keys are WittyCouch's own, in its data folder.",
       "versions": [
+        {
+          "version": "0.4.3",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "permissions": [
+            "network",
+            "programs",
+            "data"
+          ],
+          "released": "2026-11-23",
+          "changelog": "- **A television says what its remote and controller can do.** In TV mode the game screen no longer tells you to click the picture or press Esc, and the game menu says to hold Start, Back and both shoulders, without the computer's key combination.",
+          "sums": "https://github.com/wittywilla/WittyCouch/releases/download/v0.4.3/wittycouch-0.4.3-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyCouch/releases/download/v0.4.3/wittycouch-0.4.3-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyCouch/releases/download/v0.4.3/wittycouch-0.4.3-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyCouch/releases/download/v0.4.3/wittycouch-0.4.3-darwin-amd64.tar.gz",
+              "size": 7718324,
+              "sha256": "41ec4a9f09bd4237a4f69a18e3f2fe6f210ba3f7afb35a20297eb5d2708982b9"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyCouch/releases/download/v0.4.3/wittycouch-0.4.3-darwin-arm64.tar.gz",
+              "size": 7190426,
+              "sha256": "732b4d04ba24de99c0786c1567a8cd5abcf3058e0cb826abe4d467af13b51a21"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyCouch/releases/download/v0.4.3/wittycouch-0.4.3-freebsd-amd64.tar.gz",
+              "size": 7568699,
+              "sha256": "aeecadb2a7a13c76bb8a6440ae6ae6718f3644b611b12ee5ac79020fe71ef9c0"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyCouch/releases/download/v0.4.3/wittycouch-0.4.3-freebsd-arm64.tar.gz",
+              "size": 6893418,
+              "sha256": "dbfe1fcb14983dbe56380a4f2231af59b87327c999e518ee9dd1cfbacce4430c"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyCouch/releases/download/v0.4.3/wittycouch-0.4.3-linux-386.tar.gz",
+              "size": 7283974,
+              "sha256": "b4e3c4425e1533199ef1ed7f6a557d39df95b855a643d8295ca610669cf8518d"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyCouch/releases/download/v0.4.3/wittycouch-0.4.3-linux-amd64.tar.gz",
+              "size": 7713823,
+              "sha256": "d49fe2656b9664aa6b1beef63af1749c6ec3882bf006d9ea6eaa683b0d768087"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyCouch/releases/download/v0.4.3/wittycouch-0.4.3-linux-armv7.tar.gz",
+              "size": 7311138,
+              "sha256": "e823986c26de447503e4817539f3de7ab0d3ecaa4757eb6df7ddf4c50a05ed5f"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyCouch/releases/download/v0.4.3/wittycouch-0.4.3-linux-arm64.tar.gz",
+              "size": 7018984,
+              "sha256": "471d8a9850384518f896f628a8df46e208511bf02b5007d1b745d576f4ac1fa7"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyCouch/releases/download/v0.4.3/wittycouch-0.4.3-windows-amd64.zip",
+              "size": 7813869,
+              "sha256": "5b6c2f3a3956640fb9fe455cee3d4feeeaf356e88899d2272e5065c0237c6ae1"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyCouch/releases/download/v0.4.3/wittycouch-0.4.3-windows-arm64.zip",
+              "size": 7046841,
+              "sha256": "e5bea1debce74bdfbc0df1563e2b470a5bc36869131033ce9dec23c9057155e8"
+            }
+          },
+          "ui": {
+            "pages": [
+              {
+                "id": "wittycouch",
+                "title": "Game PCs"
+              },
+              {
+                "id": "wittycouch-host",
+                "title": "{title}"
+              }
+            ],
+            "navigation": [
+              "Game PCs"
+            ],
+            "settings": true,
+            "sources": 4
+          },
+          "integration": {
+            "routes": 12,
+            "screens": [
+              "/couch",
+              "/couch/:id",
+              "/couch/:id/play/:app"
+            ],
+            "settings": [
+              "Game PCs"
+            ],
+            "data": true,
+            "feature": "games"
+          }
+        },
         {
           "version": "0.4.1",
           "delivery": "helper",
@@ -474,6 +912,84 @@
       "stays": "The disc sessions the player opens, the streams and the refusal of encrypted discs stay with the server, on purpose; so do the settings themselves, which the server's sessions read.",
       "versions": [
         {
+          "version": "0.3.5",
+          "delivery": "web",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "released": "2026-11-23",
+          "changelog": "- **Back on any TV remote** closes a disc's pop-up menu or leaves the player. Some remotes' Back button did nothing.\n- **On a television,** the title line says \"Back closes\" and \"Menu button\" for the pop-up menu, instead of Esc and \"Menu key\".",
+          "sums": "https://github.com/wittywilla/WittyDisc/releases/download/v0.3.5/wittydisc-0.3.5-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyDisc/releases/download/v0.3.5/wittydisc-0.3.5-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyDisc/releases/download/v0.3.5/wittydisc-0.3.5-module.json",
+          "platforms": {
+            "all": {
+              "url": "https://github.com/wittywilla/WittyDisc/releases/download/v0.3.5/wittydisc-0.3.5-web.tar.gz",
+              "size": 412987,
+              "sha256": "b3789fc229166d1822b11b3ad92ba17dbd4fb6bcf969cddc894acecfba7044a4"
+            }
+          },
+          "ui": {},
+          "integration": {
+            "settings": [
+              "DVDs and Blu-rays"
+            ]
+          }
+        },
+        {
+          "version": "0.3.4",
+          "delivery": "web",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "released": "2026-11-23",
+          "changelog": "- **Fixed: seeking on a Blu-ray** no longer stalls and skips ahead. A seek now waits however long the disc takes, and only steps over a real gap.",
+          "sums": "https://github.com/wittywilla/WittyDisc/releases/download/v0.3.4/wittydisc-0.3.4-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyDisc/releases/download/v0.3.4/wittydisc-0.3.4-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyDisc/releases/download/v0.3.4/wittydisc-0.3.4-module.json",
+          "platforms": {
+            "all": {
+              "url": "https://github.com/wittywilla/WittyDisc/releases/download/v0.3.4/wittydisc-0.3.4-web.tar.gz",
+              "size": 412850,
+              "sha256": "5d504a17fc6da4ec38ff91397050a4d59a77e2ed254c21e768ed806e5c19f454"
+            }
+          },
+          "ui": {},
+          "integration": {
+            "settings": [
+              "DVDs and Blu-rays"
+            ]
+          }
+        },
+        {
+          "version": "0.3.3",
+          "delivery": "web",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "released": "2026-11-16",
+          "changelog": "- DVD menu: Resume and Play movie are normal-sized buttons in one row with Remote and the settings, as the host's player bar lays them out (they were stretched across two rows). The web test runs on Windows.",
+          "sums": "https://github.com/wittywilla/WittyDisc/releases/download/v0.3.3/wittydisc-0.3.3-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyDisc/releases/download/v0.3.3/wittydisc-0.3.3-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyDisc/releases/download/v0.3.3/wittydisc-0.3.3-module.json",
+          "platforms": {
+            "all": {
+              "url": "https://github.com/wittywilla/WittyDisc/releases/download/v0.3.3/wittydisc-0.3.3-web.tar.gz",
+              "size": 412646,
+              "sha256": "bc3b786c0187aabcd76114bfd8d716f23be47f2016a4a4e82f5c6b710c474558"
+            }
+          },
+          "ui": {},
+          "integration": {
+            "settings": [
+              "DVDs and Blu-rays"
+            ]
+          }
+        },
+        {
           "version": "0.3.2",
           "delivery": "web",
           "api": 5,
@@ -529,6 +1045,158 @@
       "updates": "All of the engine: the disc's structure, menus, buttons and commands, where its video lies, and subtitles; and a DVD's page: its sections in every app, why a title is the film, and the names given to its titles and chapters, kept in its own database.",
       "stays": "The session code that turns steps into streams stays with the server, as does refusing encrypted discs and checking what the engine says, on purpose. Which title is a disc's film, and an administrator's choice of another, are kept with the server's copy of the disc.",
       "versions": [
+        {
+          "version": "0.5.2",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "permissions": [
+            "data"
+          ],
+          "released": "2026-11-23",
+          "changelog": "- Nothing changes in how DVDs play: this release only tidies the module's tests.",
+          "sums": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.2/wittydvd-0.5.2-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.2/wittydvd-0.5.2-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.2/wittydvd-0.5.2-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.2/wittydvd-0.5.2-darwin-amd64.tar.gz",
+              "size": 5992959,
+              "sha256": "dd81748ec47c384d6f62419b20fe5260ff773f5fc5fb8872036b340059a46277"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.2/wittydvd-0.5.2-darwin-arm64.tar.gz",
+              "size": 5586869,
+              "sha256": "1706b4dca8ec11cc82aee8fca2c99af2f8d87ff28f5c5e34feb4c6d2ff566f0d"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.2/wittydvd-0.5.2-freebsd-amd64.tar.gz",
+              "size": 5868252,
+              "sha256": "be5f542286fe2a23edfc4000200620156404f37f5906974c9fb3cab6c6da5e93"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.2/wittydvd-0.5.2-freebsd-arm64.tar.gz",
+              "size": 5361170,
+              "sha256": "97344a39f875b6af0bd12558cae1d15757e1dda652901211ee5871fce8f5f67f"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.2/wittydvd-0.5.2-linux-386.tar.gz",
+              "size": 5716475,
+              "sha256": "e08e07577a880d8f7a89d728c3c01f58f908b5a1c6a7448942ff0b6a28d0c5a6"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.2/wittydvd-0.5.2-linux-amd64.tar.gz",
+              "size": 5992649,
+              "sha256": "e2bc0c988556d7e0cd76e6ddf232b9fd713a82e76c766c3ca0c4c6b0a0bafc1a"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.2/wittydvd-0.5.2-linux-armv7.tar.gz",
+              "size": 5745197,
+              "sha256": "217d7b9fe9eca24e24b0853ac9b5a7f9a25f8370a8b94bbabd328eb445d47957"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.2/wittydvd-0.5.2-linux-arm64.tar.gz",
+              "size": 5472796,
+              "sha256": "36fd83e9f2b4afce4ce552daa243c0f9ece1c4e0b3e16f43edc068924bb3dadc"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.2/wittydvd-0.5.2-windows-amd64.zip",
+              "size": 6080186,
+              "sha256": "5b138e24ac644f4dc88940145e3182c077864a69856bf01e0c6cb05899ebb963"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.2/wittydvd-0.5.2-windows-arm64.zip",
+              "size": 5507812,
+              "sha256": "3b1c4e12e847faa2c156c9a2c3e9b67dcb2ba047b27072064becbc376413ef12"
+            }
+          },
+          "ui": {
+            "sources": 9,
+            "inserts": 9
+          },
+          "integration": {
+            "routes": 5,
+            "data": true
+          }
+        },
+        {
+          "version": "0.5.1",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "permissions": [
+            "data"
+          ],
+          "released": "2026-11-16",
+          "changelog": "- The engine (package `wittydvd`) no longer links the module's service: its commands are described by the new package `commands`, which has no networking, so WittyMediaPlayer's helper contains no network code. A test keeps it so.\n- Tests: TestDual closes the database it leaves open, so the tests pass on Windows (#4).",
+          "sums": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-darwin-amd64.tar.gz",
+              "size": 5992786,
+              "sha256": "e3c56c5b8b87964248deba66176c26d0bac0bae02597542c5fa983736bdd7e00"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-darwin-arm64.tar.gz",
+              "size": 5586911,
+              "sha256": "1c92659eb9651570adf0007218a7cbabaea5a73fd57168d4cb079667a33e78f2"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-freebsd-amd64.tar.gz",
+              "size": 5868120,
+              "sha256": "6ef68d2bd6c19343d0ce78aabc98e2af20ca5cb2e3afe8110faa2da70c580960"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-freebsd-arm64.tar.gz",
+              "size": 5360335,
+              "sha256": "f5b5b787fa08007686d3ae69c95de5cf2cc20c5226267c571ca39dbff767a128"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-linux-386.tar.gz",
+              "size": 5713971,
+              "sha256": "a6afe7436adf3ffbd30697a52cf5cdacde34f398be14ce11a96b530339ca784e"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-linux-amd64.tar.gz",
+              "size": 5991558,
+              "sha256": "f4c62c3b822855c031bf923104b9263b7dc5f7878cfc33c68f5d7c0b4e106aae"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-linux-armv7.tar.gz",
+              "size": 5730092,
+              "sha256": "d04f48e2dbb293730893e5e6a1a2eeecc3ee8e25310c8632fe22dc77012f25da"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-linux-arm64.tar.gz",
+              "size": 5473125,
+              "sha256": "e6c39f9610fadfc3da5738701fac246de6cca8ebf235c7958f08bb4f5591e9ec"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-windows-amd64.zip",
+              "size": 6079948,
+              "sha256": "dd972cd8987ad41792fbaca41edbe5138730b2724b9161044e8c1d2e43bdfe18"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyDVD/releases/download/v0.5.1/wittydvd-0.5.1-windows-arm64.zip",
+              "size": 5507575,
+              "sha256": "d551f6068218636e98c80701f44b20257f15f2d45e3953f35f7c9f267ea3ca8d"
+            }
+          },
+          "ui": {
+            "sources": 9,
+            "inserts": 9
+          },
+          "integration": {
+            "routes": 5,
+            "data": true
+          }
+        },
         {
           "version": "0.5.0",
           "delivery": "helper",
@@ -632,6 +1300,30 @@
       "updates": "The EPUB reader itself: book view, typography, study tools, handwriting and its look.",
       "stays": "The Reader page and the host it provides, and how the server takes a book apart.",
       "versions": [
+        {
+          "version": "0.4.3",
+          "delivery": "web",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "released": "2026-11-23",
+          "changelog": "- **Back on any TV remote closes the book** (or the open panel first). Some remotes' Back button did nothing in the reader. Back no longer also leaves the page before it, as it could with some remotes.",
+          "sums": "https://github.com/wittywilla/WittyEbook/releases/download/v0.4.3/wittyebook-0.4.3-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyEbook/releases/download/v0.4.3/wittyebook-0.4.3-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyEbook/releases/download/v0.4.3/wittyebook-0.4.3-module.json",
+          "platforms": {
+            "all": {
+              "url": "https://github.com/wittywilla/WittyEbook/releases/download/v0.4.3/wittyebook-0.4.3-web.tar.gz",
+              "size": 37671,
+              "sha256": "c32c519e9f34dbf5ce79eceed5dfdac89dbff03b242c1c382a90f5dd5592aeda"
+            }
+          },
+          "ui": {
+            "settings": true
+          },
+          "integration": {}
+        },
         {
           "version": "0.4.1",
           "delivery": "web",
@@ -740,6 +1432,84 @@
       "updates": "Finding drives and usual folders, listing what is in a folder, the folder window in the web app, and the Server folders page every app draws, a TV's included.",
       "stays": "The server's folder route (GET /api/fs), its checks of what this module answers, naming what kind of media each file is, the folders already in your libraries, and typing a folder's path when this module isn't there.",
       "versions": [
+        {
+          "version": "0.4.2",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "released": "2026-11-23",
+          "changelog": "- **Drive sizes match the rest of the server.** Server folders counted 1000 bytes to a KB while the file browser's own window, Statistics and the server count 1024, as your computer does, so the same disk read 511 GB in one place and 476 GB in another. It now reads the same everywhere.\n- **Fixed:** asking for a page of server folders with an enormous size could stop the file browser's helper.",
+          "sums": "https://github.com/wittywilla/WittyIntegratedFileBrowser/releases/download/v0.4.2/wittyintegratedfilebrowser-0.4.2-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyIntegratedFileBrowser/releases/download/v0.4.2/wittyintegratedfilebrowser-0.4.2-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyIntegratedFileBrowser/releases/download/v0.4.2/wittyintegratedfilebrowser-0.4.2-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyIntegratedFileBrowser/releases/download/v0.4.2/wittyintegratedfilebrowser-0.4.2-darwin-amd64.tar.gz",
+              "size": 1902906,
+              "sha256": "0db3f8d90661c6b29c69614d073cf9c0d02726cc0746ad22bb864584ef047b2b"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyIntegratedFileBrowser/releases/download/v0.4.2/wittyintegratedfilebrowser-0.4.2-darwin-arm64.tar.gz",
+              "size": 1754844,
+              "sha256": "9801f86b04fb917ff0ec638c3ee81d5929d6242b79a7f926b10e2eda80fafd75"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyIntegratedFileBrowser/releases/download/v0.4.2/wittyintegratedfilebrowser-0.4.2-freebsd-amd64.tar.gz",
+              "size": 1866533,
+              "sha256": "6847779eca8047dd575c4464c886e122cfbfee971cf232dfcf00e106695c07ff"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyIntegratedFileBrowser/releases/download/v0.4.2/wittyintegratedfilebrowser-0.4.2-freebsd-arm64.tar.gz",
+              "size": 1678123,
+              "sha256": "61605f76b46979faf96e755a212574821f1ecef52c01b996f0f9cc2d0c3fc9c9"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyIntegratedFileBrowser/releases/download/v0.4.2/wittyintegratedfilebrowser-0.4.2-linux-386.tar.gz",
+              "size": 1792496,
+              "sha256": "fc34ee794384cfe541c35d70826fbdbd429411d8b2c04c43591dd5a3adbcac92"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyIntegratedFileBrowser/releases/download/v0.4.2/wittyintegratedfilebrowser-0.4.2-linux-amd64.tar.gz",
+              "size": 1885670,
+              "sha256": "38537ff695e1c0dc5234be0ba5b4119423ae7b3d0cacae074bcf98f9c00aefeb"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyIntegratedFileBrowser/releases/download/v0.4.2/wittyintegratedfilebrowser-0.4.2-linux-armv7.tar.gz",
+              "size": 1825989,
+              "sha256": "367bf136497a43ae542b480968b9c88c0f17aab036874266c2760343a165ebef"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyIntegratedFileBrowser/releases/download/v0.4.2/wittyintegratedfilebrowser-0.4.2-linux-arm64.tar.gz",
+              "size": 1698457,
+              "sha256": "91aeb68f981ebd628dbad5b86b5bc4d5145d3e76c18ed3fcf6a2d341655e7795"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyIntegratedFileBrowser/releases/download/v0.4.2/wittyintegratedfilebrowser-0.4.2-windows-amd64.zip",
+              "size": 1969384,
+              "sha256": "d74cffa30d8d14494ee08f878a6eabc9b7dd7b26a8e6c65db5643d2bad33b6ac"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyIntegratedFileBrowser/releases/download/v0.4.2/wittyintegratedfilebrowser-0.4.2-windows-arm64.zip",
+              "size": 1762238,
+              "sha256": "f80eb9ce8debd49166dace88f4d8c2631e3cd1f4759ce5047eac6c444aa55273"
+            }
+          },
+          "ui": {
+            "pages": [
+              {
+                "id": "wittyintegratedfilebrowser",
+                "title": "Server folders"
+              }
+            ],
+            "navigation": [
+              "Server folders"
+            ],
+            "sources": 2
+          },
+          "integration": {}
+        },
         {
           "version": "0.4.0",
           "delivery": "helper",
@@ -866,6 +1636,30 @@
       "stays": "pdf.js and its worker, which do the actual reading, stay with the app so it isn't carried twice.",
       "versions": [
         {
+          "version": "0.4.3",
+          "delivery": "web",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "released": "2026-11-23",
+          "changelog": "- **Back on any TV remote closes the document** (or the open panel first). Some remotes' Back button did nothing in the reader. Back no longer also leaves the page before it, as it could with some remotes.\n- **Long documents use less memory.** Pages you've scrolled past give back what the reader kept to draw them.\n- **On a television,** the display settings explain the remote's arrows and Back instead of Ctrl, + and − and Page Up.\n- **Fixed:** closing the page list while its small pictures were still on their way could leave errors behind in the browser.\n- **Safer documents:** PDFs open without the reader compiling code for their fonts.",
+          "sums": "https://github.com/wittywilla/WittyPDF/releases/download/v0.4.3/wittypdf-0.4.3-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyPDF/releases/download/v0.4.3/wittypdf-0.4.3-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyPDF/releases/download/v0.4.3/wittypdf-0.4.3-module.json",
+          "platforms": {
+            "all": {
+              "url": "https://github.com/wittywilla/WittyPDF/releases/download/v0.4.3/wittypdf-0.4.3-web.tar.gz",
+              "size": 36480,
+              "sha256": "3ba055ebf480311a4de615a857f2d8402ebd53c2874000ccfc632c357af9475d"
+            }
+          },
+          "ui": {
+            "settings": true
+          },
+          "integration": {}
+        },
+        {
           "version": "0.4.1",
           "delivery": "web",
           "api": 5,
@@ -913,6 +1707,107 @@
       "updates": "All of it: reading EXIF, picture sizes and RAW previews; albums; the photo map's settings; and its screens, in the web app and on every app (timeline, albums, map).",
       "stays": "Scanning photo libraries and keeping what EXIF says, the pictures themselves, uploads and share links stay the server's.",
       "versions": [
+        {
+          "version": "0.5.3",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "permissions": [
+            "network",
+            "data"
+          ],
+          "released": "2026-11-23",
+          "changelog": "- **The map speaks the remote's language on a television.** In TV mode its hint says to press OK to move the map with the arrows and Back when done, instead of naming the + and − keys and Tab, which a remote doesn't have.\n- **Zoom the map with a remote:** while moving the map, Channel up and Channel down zoom in and out (as Page Up and Page Down do on a keyboard). The zoom buttons still work everywhere.",
+          "sums": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.3/wittyphotos-0.5.3-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.3/wittyphotos-0.5.3-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.3/wittyphotos-0.5.3-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.3/wittyphotos-0.5.3-darwin-amd64.tar.gz",
+              "size": 5800807,
+              "sha256": "92c28305ceae53a2d642d0f444fed3668a39622b7462d19dde4a1295b25f1ad4"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.3/wittyphotos-0.5.3-darwin-arm64.tar.gz",
+              "size": 5416108,
+              "sha256": "8699a32f450e8d0d64d63baf7417c4ef503ca9ec16e8c4851a882e837855453e"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.3/wittyphotos-0.5.3-freebsd-amd64.tar.gz",
+              "size": 5683334,
+              "sha256": "93b9698f075d51d6b4d9dda49da12d52661d2b14c114bb59a6325e22fb4fceba"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.3/wittyphotos-0.5.3-freebsd-arm64.tar.gz",
+              "size": 5194139,
+              "sha256": "c74258b7678e2a0fe09f1d0ee0069d15cb7655ab644a12033a893a459bfc4418"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.3/wittyphotos-0.5.3-linux-386.tar.gz",
+              "size": 5554624,
+              "sha256": "c019c47d6d35b17ede63f8476c53f5d064a94fc5354484996b25eeb55afaf17d"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.3/wittyphotos-0.5.3-linux-amd64.tar.gz",
+              "size": 5805672,
+              "sha256": "a04950803e817844029adb28cd6fd221f005cbfc853b4fa2ac2af2f07ba94bf5"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.3/wittyphotos-0.5.3-linux-armv7.tar.gz",
+              "size": 5556735,
+              "sha256": "c300e740f27e3b5fe258c52e4b208dac7ac214b636e7925ee1e6b232935ada65"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.3/wittyphotos-0.5.3-linux-arm64.tar.gz",
+              "size": 5308985,
+              "sha256": "397b7c16ab855ab8be007ac15442dfc638c7aaba512c23e0a5d656309efde437"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.3/wittyphotos-0.5.3-windows-amd64.zip",
+              "size": 5890166,
+              "sha256": "7caa5a39d01f2c65bcff6b0344dd40ec783676047a83eb5d83e673e8b1f5d9c1"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.3/wittyphotos-0.5.3-windows-arm64.zip",
+              "size": 5326329,
+              "sha256": "0c8e1cb6663a1a756c59bf663830789cf41af99678923ac206276f0f4baaffa0"
+            }
+          },
+          "ui": {
+            "pages": [
+              {
+                "id": "wittyphotos-library",
+                "title": "{library}"
+              },
+              {
+                "id": "wittyphotos",
+                "title": "Photos"
+              },
+              {
+                "id": "wittyphotos-albums",
+                "title": "{title}"
+              },
+              {
+                "id": "wittyphotos-album",
+                "title": "{title}"
+              }
+            ],
+            "navigation": [
+              "Photos"
+            ],
+            "settings": true,
+            "sources": 2
+          },
+          "integration": {
+            "routes": 4,
+            "screens": [
+              "/photos/library/:id"
+            ],
+            "data": true
+          }
+        },
         {
           "version": "0.5.1",
           "delivery": "helper",
@@ -1042,6 +1937,489 @@
       "updates": "All of it: the console tables, the game runner, streaming, controllers, the player, and every WittyPlay screen in the web app (its frame, pages, game pictures and settings).",
       "stays": "The games library, its metadata and where saves are kept stay with the server.",
       "versions": [
+        {
+          "version": "0.7.13",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "permissions": [
+            "network",
+            "programs",
+            "devices",
+            "data"
+          ],
+          "released": "2026-11-23",
+          "changelog": "- **Games start on a phone away from home.** An app that queued a button press or a keyframe request while its connection was still opening sent it before the hello, and the game refused the connection (\"the first message must be the hello, as text\") and never showed a picture. Binary messages before the hello are now skipped.\n- **The note for a server with no graphics card is short** enough to read on a phone's start screen.\n- **Return To Server says so on a phone.** On a narrow screen the button was only an arrow; it now reads \"Return\" beside it. Wider screens keep the whole name.",
+          "sums": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.13/wittyplay-0.7.13-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.13/wittyplay-0.7.13-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.13/wittyplay-0.7.13-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.13/wittyplay-0.7.13-darwin-amd64.tar.gz",
+              "size": 13480603,
+              "sha256": "38d87a69fd0afddff033c720b203f485db8399f4b360d493792d96c3a53f4473"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.13/wittyplay-0.7.13-darwin-arm64.tar.gz",
+              "size": 12653490,
+              "sha256": "ea17b1dd47e6d557519c68cfa531b494ae841517b5d774f2b447a12c1ed92e2f"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.13/wittyplay-0.7.13-freebsd-amd64.tar.gz",
+              "size": 13129678,
+              "sha256": "9b064db8dfd78359457b985b086af285fe1a1db71f0c6a52583d77f74c2be9ce"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.13/wittyplay-0.7.13-freebsd-arm64.tar.gz",
+              "size": 12051495,
+              "sha256": "2f6594ee45e9c893c38061d0e7efea4814458344e47648350cb11b5dbea527fc"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.13/wittyplay-0.7.13-linux-386.tar.gz",
+              "size": 12577940,
+              "sha256": "170655bbdece3537c7a28ecfdba83e5daaf85c639c6ab8ef8937cc16d9ad73b2"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.13/wittyplay-0.7.13-linux-amd64.tar.gz",
+              "size": 13351754,
+              "sha256": "18d90a8fab84bcc3bdeeb1798dd023c2051d550c5e0604f98327c3d2b0bc7e89"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.13/wittyplay-0.7.13-linux-armv7.tar.gz",
+              "size": 12623883,
+              "sha256": "e95c0a1a6594429b9215c028a6633e90b3e4fea01e98257acc4b67d293a1fb54"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.13/wittyplay-0.7.13-linux-arm64.tar.gz",
+              "size": 12254949,
+              "sha256": "e7247890140ab264717b39b5413c49b188c9922b0ffa1268c465a929f126e105"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.13/wittyplay-0.7.13-windows-amd64.zip",
+              "size": 13623689,
+              "sha256": "c2cef0bb3ad03e16dff949d1b594d0e7bb6e6cb908be950405fd31a331485ed9"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.13/wittyplay-0.7.13-windows-arm64.zip",
+              "size": 12382735,
+              "sha256": "ca4c950554ecac77a5aa8f6da648af78e2255510c60af5e22594ac3475520dbf"
+            }
+          },
+          "ui": {
+            "pages": [
+              {
+                "id": "wittyplay",
+                "title": "What this server plays"
+              },
+              {
+                "id": "wittyplay-online",
+                "title": "WittyPlay Online"
+              },
+              {
+                "id": "wittyplay-controllers",
+                "title": "Controllers"
+              },
+              {
+                "id": "wittyplay-library",
+                "title": "{library}"
+              },
+              {
+                "id": "wittyplay-settings",
+                "title": "Settings"
+              },
+              {
+                "id": "wittyplay-store",
+                "title": "Cores & emulators"
+              },
+              {
+                "id": "wittyplay-store-console",
+                "title": "{title}"
+              },
+              {
+                "id": "wittyplay-setup",
+                "title": "Set up games"
+              },
+              {
+                "id": "wittyplay-quick",
+                "title": "Menu"
+              },
+              {
+                "id": "wittyplay-room",
+                "title": "Your room"
+              },
+              {
+                "id": "wittyplay-memory",
+                "title": "Memory"
+              },
+              {
+                "id": "wittyplay-keep",
+                "title": "Keep this screenshot"
+              },
+              {
+                "id": "wittyplay-privacy",
+                "title": "Friends and what you play"
+              },
+              {
+                "id": "wittyplay-kids",
+                "title": "Friends"
+              }
+            ],
+            "navigation": [
+              "Games"
+            ],
+            "settings": true,
+            "sources": 19,
+            "inserts": 2
+          },
+          "integration": {
+            "routes": 141,
+            "screens": [
+              "/wittyplay/*",
+              "/page/wittyplay",
+              "/page/wittyplay-*",
+              "/games",
+              "/game/:id",
+              "/controllers",
+              "/games/library/:id",
+              "/games/game/:id",
+              "/big/*"
+            ],
+            "settings": [
+              "Games & emulators",
+              "Game metadata",
+              "My game settings"
+            ],
+            "data": true,
+            "feature": "games",
+            "scans": [
+              "games"
+            ]
+          }
+        },
+        {
+          "version": "0.7.12",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "permissions": [
+            "network",
+            "programs",
+            "devices",
+            "data"
+          ],
+          "released": "2026-11-23",
+          "changelog": "- **A big games library's first scan no longer crawls.** While a scan described the games it found, it kept reading the game database again for almost every game, so a first scan of a large library could take hours. It now keeps a few consoles' lists in memory.\n- **A TV remote is told to press Back** for the game menu while a game loads, instead of Esc.\n- **Button hints follow TV mode:** with the server's TV mode on, hints show the remote's OK and Back instead of a keyboard's keys, and the choice of buttons to show offers the remote instead of the keyboard.\n- **Release dates are whole or left out.** A date a source gave half-way (such as \"2001-1\") is shown as the year, so games sort by date correctly.\n- **Fewer questions the first time you open Games.** It asks which buttons to show, then how to get back to the app, and you're at your games. How games are laid out and what choosing one does start as they are; change them any time in Settings.\n- **Choosing your buttons takes one press.** Enter on a choice picks it and moves on; with a controller, picking one moves straight to Continue.",
+          "sums": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.12/wittyplay-0.7.12-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.12/wittyplay-0.7.12-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.12/wittyplay-0.7.12-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.12/wittyplay-0.7.12-darwin-amd64.tar.gz",
+              "size": 13480165,
+              "sha256": "2acba1f007e92e89e484f62939d6723e14b8dde2646098d074a80d61e3b2bbea"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.12/wittyplay-0.7.12-darwin-arm64.tar.gz",
+              "size": 12667698,
+              "sha256": "187b909ae754103d58032fda7d2348c3673aedd5766a850a4235700dc9fbee3d"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.12/wittyplay-0.7.12-freebsd-amd64.tar.gz",
+              "size": 13129730,
+              "sha256": "274053c75a292789976f1b48a44f2bdfc8cee95c422ece6dd19c0f2602348871"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.12/wittyplay-0.7.12-freebsd-arm64.tar.gz",
+              "size": 12051216,
+              "sha256": "6e4a5a036f4fc52b80d809f3f4264ff80f1672f4fb37f38e2b49a3f93bf2fe3a"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.12/wittyplay-0.7.12-linux-386.tar.gz",
+              "size": 12577993,
+              "sha256": "cf944773a63bf10e2eeb2db70bf8b726f6b8d1f2a81f79539550d05dc01e3dfe"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.12/wittyplay-0.7.12-linux-amd64.tar.gz",
+              "size": 13349580,
+              "sha256": "45dd9e68890526d088f47e8f79b42e1de6e39603cee09a586e23ea6058d95091"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.12/wittyplay-0.7.12-linux-armv7.tar.gz",
+              "size": 12636581,
+              "sha256": "e44e0cf93892d3e85aeb33853522fdd6846cff589555aaed6b08d7cf49b3b8d3"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.12/wittyplay-0.7.12-linux-arm64.tar.gz",
+              "size": 12270134,
+              "sha256": "2265368fffea5ba88745b3c6081f1429a204e321b281578e4d9ef1bee17499e3"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.12/wittyplay-0.7.12-windows-amd64.zip",
+              "size": 13623496,
+              "sha256": "887497288184900646450328ff5c50aad7952d67ac0ebc0ae3681c592fd14346"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.12/wittyplay-0.7.12-windows-arm64.zip",
+              "size": 12382476,
+              "sha256": "7f57b3ea79ff8140f3b601b201ffcbbe3d70e453e0a99893aeb0cce8dc050804"
+            }
+          },
+          "ui": {
+            "pages": [
+              {
+                "id": "wittyplay",
+                "title": "What this server plays"
+              },
+              {
+                "id": "wittyplay-online",
+                "title": "WittyPlay Online"
+              },
+              {
+                "id": "wittyplay-controllers",
+                "title": "Controllers"
+              },
+              {
+                "id": "wittyplay-library",
+                "title": "{library}"
+              },
+              {
+                "id": "wittyplay-settings",
+                "title": "Settings"
+              },
+              {
+                "id": "wittyplay-store",
+                "title": "Cores & emulators"
+              },
+              {
+                "id": "wittyplay-store-console",
+                "title": "{title}"
+              },
+              {
+                "id": "wittyplay-setup",
+                "title": "Set up games"
+              },
+              {
+                "id": "wittyplay-quick",
+                "title": "Menu"
+              },
+              {
+                "id": "wittyplay-room",
+                "title": "Your room"
+              },
+              {
+                "id": "wittyplay-memory",
+                "title": "Memory"
+              },
+              {
+                "id": "wittyplay-keep",
+                "title": "Keep this screenshot"
+              },
+              {
+                "id": "wittyplay-privacy",
+                "title": "Friends and what you play"
+              },
+              {
+                "id": "wittyplay-kids",
+                "title": "Friends"
+              }
+            ],
+            "navigation": [
+              "Games"
+            ],
+            "settings": true,
+            "sources": 19,
+            "inserts": 2
+          },
+          "integration": {
+            "routes": 141,
+            "screens": [
+              "/wittyplay/*",
+              "/page/wittyplay",
+              "/page/wittyplay-*",
+              "/games",
+              "/game/:id",
+              "/controllers",
+              "/games/library/:id",
+              "/games/game/:id",
+              "/big/*"
+            ],
+            "settings": [
+              "Games & emulators",
+              "Game metadata",
+              "My game settings"
+            ],
+            "data": true,
+            "feature": "games",
+            "scans": [
+              "games"
+            ]
+          }
+        },
+        {
+          "version": "0.7.10",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "permissions": [
+            "network",
+            "programs",
+            "devices",
+            "data"
+          ],
+          "released": "2026-11-23",
+          "changelog": "The first WittyPlay update since 0.7.2, with everything from the versions in between.\n\n**Looks and feel**\n\n- **Fits a computer's screen.** In a desktop or laptop browser and the desktop app, games are drawn at a normal size: six or seven to a row on a large window, with the chosen game's details beside them. Small, medium and large change the size everywhere. TV mode keeps its big, from-the-sofa sizes.\n- **A mouse only points.** Hovering over a game no longer chooses it, so the details stay put while you move to their buttons. Click to choose, click again (or double-click, or press Enter) to open. A remote, a gamepad and the arrow keys work as before.\n- **The game menu fits the window,** with no scroll bar on a computer, phone or TV.\n- **A details panel beside the games** on All games, a console's games and search, and All games follows the Grid and List switch.\n- **Console photos without their white box,** fixed photos for the Wii, Switch and Switch 2, and a console's name follows the version you pick (the NES or the Famicom, the Genesis or the Mega Drive).\n- **Narrower windows read better,** and the highlight around a chosen game no longer spills over its neighbours.\n\n**Playing**\n\n- **Smoother games on a graphics card.** PlayStation, PlayStation 2, GameCube and Wii games draw with Vulkan where the card supports it, and frames no longer wait for the card every time. Games run ahead of background work on Windows.\n- **GameCube and Wii at full speed** on Windows and Linux, and they play on a Linux server with no graphics card too.\n- **Nintendo 64: ParaLLEl-RDP can be chosen** in a core's options. It isn't the default, because it costs more processor time.\n- **Performance profiles:** one starting point for every emulator, chosen in the first-run step and in Settings, Games.\n- **The Wii Remote's pointer works from a browser:** the mouse, or a finger, is where the remote points, and a click presses A.\n- **Fixed:** some Nintendo 64 cores crashed at random on Windows, or when starting with Vulkan.\n- **Fixed:** the core picker keeps your place while a core downloads, and the game shows the new core at once.\n\n**Your games' files**\n\n- **A game's own `.wittyplay`** can carry everything WittyPlay knows about it: details, several pictures of each kind, controls, cheats and how it plays. It is checked against the game file it was made for, so a file for another region or revision is flagged rather than applied.\n- **An editor for a game's `.wittyplay`,** for administrators on a computer (from a game's \"Fix this game, files and advanced\").\n- **Bring in what other tools left behind** (game lists, `.nfo` files, box art in media folders, remaps) or write WittyPlay's details back out for them.\n- **A games library being scanned says so.** Consoles appear as the scan sorts games into them (\"Finding your games: 1,204 found so far\"), instead of a page saying there's no games library.\n- **First-run setup sees your games folders.** Its Games step lists each games library with its consoles and how many games, instead of saying there's no games folder.\n- **On a television,** console settings stay, and file and folder screens tell you to use a computer.",
+          "sums": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.10/wittyplay-0.7.10-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.10/wittyplay-0.7.10-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.10/wittyplay-0.7.10-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.10/wittyplay-0.7.10-darwin-amd64.tar.gz",
+              "size": 13473375,
+              "sha256": "8b0f1478746f7a8563fc6841e921837436307b0bea531f5fc042e0530ccebb52"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.10/wittyplay-0.7.10-darwin-arm64.tar.gz",
+              "size": 12644752,
+              "sha256": "5ccf655c5b9edeaaf2210e7af9569d6890233fab984d815e7ea6ad4af37275ec"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.10/wittyplay-0.7.10-freebsd-amd64.tar.gz",
+              "size": 13125994,
+              "sha256": "d6d4ad7a0f8055a63989b027b1d7d353ead66d50519d58e6ec18f431c4b0a0aa"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.10/wittyplay-0.7.10-freebsd-arm64.tar.gz",
+              "size": 12046392,
+              "sha256": "0c55032fa579a48a0449cff1865e8e2459afa896594d72ca7b3ff9feb05ad84a"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.10/wittyplay-0.7.10-linux-386.tar.gz",
+              "size": 12589580,
+              "sha256": "a5977ee25f5d35143686f537fb7f58c9e9c339cc82dd046f7faa32e068595fcd"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.10/wittyplay-0.7.10-linux-amd64.tar.gz",
+              "size": 13348412,
+              "sha256": "90a913c7f541e63e1c2d2e0c319d22ade68794fc838b9d397bf7831734b65575"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.10/wittyplay-0.7.10-linux-armv7.tar.gz",
+              "size": 12621487,
+              "sha256": "b59077e9729454325ebd4ebc5eae39c3e4aa66346e878b3a6bf1d85616439b7f"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.10/wittyplay-0.7.10-linux-arm64.tar.gz",
+              "size": 12251455,
+              "sha256": "2b55059d7fd33d64d9efd4c611c33d1e1289fbdf53727aedd535496989ebefdd"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.10/wittyplay-0.7.10-windows-amd64.zip",
+              "size": 13629255,
+              "sha256": "304e084dc23074eba2a35679af46dfec088b564ea321791d59294eaa7bfba768"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.10/wittyplay-0.7.10-windows-arm64.zip",
+              "size": 12354606,
+              "sha256": "a3699ee1b755b50b653de9298b9f1e8b5c43efa04f98c21009378d196b297d7f"
+            }
+          },
+          "ui": {
+            "pages": [
+              {
+                "id": "wittyplay",
+                "title": "What this server plays"
+              },
+              {
+                "id": "wittyplay-online",
+                "title": "WittyPlay Online"
+              },
+              {
+                "id": "wittyplay-controllers",
+                "title": "Controllers"
+              },
+              {
+                "id": "wittyplay-library",
+                "title": "{library}"
+              },
+              {
+                "id": "wittyplay-settings",
+                "title": "Settings"
+              },
+              {
+                "id": "wittyplay-store",
+                "title": "Cores & emulators"
+              },
+              {
+                "id": "wittyplay-store-console",
+                "title": "{title}"
+              },
+              {
+                "id": "wittyplay-setup",
+                "title": "Set up games"
+              },
+              {
+                "id": "wittyplay-quick",
+                "title": "Menu"
+              },
+              {
+                "id": "wittyplay-room",
+                "title": "Your room"
+              },
+              {
+                "id": "wittyplay-memory",
+                "title": "Memory"
+              },
+              {
+                "id": "wittyplay-keep",
+                "title": "Keep this screenshot"
+              },
+              {
+                "id": "wittyplay-privacy",
+                "title": "Friends and what you play"
+              },
+              {
+                "id": "wittyplay-kids",
+                "title": "Friends"
+              }
+            ],
+            "navigation": [
+              "Games"
+            ],
+            "settings": true,
+            "sources": 19,
+            "inserts": 2
+          },
+          "integration": {
+            "routes": 141,
+            "screens": [
+              "/wittyplay/*",
+              "/page/wittyplay",
+              "/page/wittyplay-*",
+              "/games",
+              "/game/:id",
+              "/controllers",
+              "/games/library/:id",
+              "/games/game/:id",
+              "/big/*"
+            ],
+            "settings": [
+              "Games & emulators",
+              "Game metadata",
+              "My game settings"
+            ],
+            "data": true,
+            "feature": "games",
+            "scans": [
+              "games"
+            ]
+          }
+        },
         {
           "version": "0.7.2",
           "delivery": "helper",
@@ -1393,6 +2771,108 @@
       "stays": "A rig's games library and its games stay ordinary libraries and items of the server's, so every access rule applies to them.",
       "versions": [
         {
+          "version": "0.4.2",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "permissions": [
+            "network",
+            "programs",
+            "data"
+          ],
+          "released": "2026-11-23",
+          "changelog": "- **A television says what its remote and controller can do.** In TV mode the game screen no longer tells you to click the picture or press Esc, and the game menu says to hold Start, Back and both shoulders, without the computer's key combination.\n- **Button hints follow TV mode:** with the server's TV mode on, the hints show the remote's OK and Back instead of a keyboard's keys.",
+          "sums": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.2/wittyrigs-0.4.2-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.2/wittyrigs-0.4.2-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.2/wittyrigs-0.4.2-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.2/wittyrigs-0.4.2-darwin-amd64.tar.gz",
+              "size": 7751136,
+              "sha256": "e916048f1c695a319af6c17a6772a9449401342934ce8730acdbda70bf3f6d5f"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.2/wittyrigs-0.4.2-darwin-arm64.tar.gz",
+              "size": 7294461,
+              "sha256": "b77d02ca6d4799647f7e8effd2f72fa4bcbc5f9e7b038eedac7ab86e3e17901c"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.2/wittyrigs-0.4.2-freebsd-amd64.tar.gz",
+              "size": 7603811,
+              "sha256": "92986583c7a6feda441b57a22930c3480bbbad39e3dda1fb94dce6c651dc2422"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.2/wittyrigs-0.4.2-freebsd-arm64.tar.gz",
+              "size": 7008886,
+              "sha256": "31354b2b72201d6210817bd6f5bb5befc7ac201ef9d7875b8297f4fb0bfa5a1c"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.2/wittyrigs-0.4.2-linux-386.tar.gz",
+              "size": 7322183,
+              "sha256": "2b56c4f7d9502e59d017ed92a18d14ed3ffa4afca0afd11bac0b9d55d85a1169"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.2/wittyrigs-0.4.2-linux-amd64.tar.gz",
+              "size": 7757965,
+              "sha256": "f02235a657564cbe8c9ddb8f0eaf692871703a3f2a2547afa5432e16988bfe8b"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.2/wittyrigs-0.4.2-linux-armv7.tar.gz",
+              "size": 7360367,
+              "sha256": "7fa90231fcb30ef2c954aa95c5abe2270c6e53bb398a716a18c00b9e06afee6d"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.2/wittyrigs-0.4.2-linux-arm64.tar.gz",
+              "size": 7142988,
+              "sha256": "6bee05fab8f15d7e0792f4e4108368dd8bb8c08f20180400c7480458df7c052c"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.2/wittyrigs-0.4.2-windows-amd64.zip",
+              "size": 7858037,
+              "sha256": "678450c6f8f7258bf32d135cb44e1e5ae21d3558d6da30e3d087714f85deb8c1"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.2/wittyrigs-0.4.2-windows-arm64.zip",
+              "size": 7142050,
+              "sha256": "0632c61cb1d4e8d8d1376dd9810390ee74fb55bdd5f5563bd441fce0bc0ad690"
+            }
+          },
+          "ui": {
+            "pages": [
+              {
+                "id": "wittyrigs",
+                "title": "Game rigs"
+              },
+              {
+                "id": "wittyrigs-rig",
+                "title": "{title}"
+              },
+              {
+                "id": "wittyrigs-local",
+                "title": "This server's Sunshine"
+              }
+            ],
+            "settings": true,
+            "sources": 4
+          },
+          "integration": {
+            "routes": 17,
+            "screens": [
+              "/rigs/library/:id",
+              "/rigs/game/:id",
+              "/rigs/play/:id"
+            ],
+            "settings": [
+              "Game rigs",
+              "WittyRigs"
+            ],
+            "data": true,
+            "feature": "games"
+          }
+        },
+        {
           "version": "0.4.0",
           "delivery": "helper",
           "api": 5,
@@ -1574,6 +3054,202 @@
       "stays": "The guide, recordings, favourites and sets stay with the server, and so does refusing encrypted channels, on purpose: the server watches every stream itself. Your tuners, channels and guide sources are WittyTuner's own, in its data folder.",
       "versions": [
         {
+          "version": "0.5.1",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "permissions": [
+            "network",
+            "programs",
+            "devices",
+            "data"
+          ],
+          "released": "2026-11-23",
+          "changelog": "- **Tidier buttons in Live TV settings.** Where a section has several buttons (Duplicates, Search for tuners and Add live TV; Read the list and Scan for channels; the guide review's), they sit in one evenly spaced row that wraps on a narrow screen, instead of touching and sitting at different heights.\n- **Fixed:** a request for a page of live TV rows starting before the first could stop WittyTuner's helper.",
+          "sums": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.1/wittytuner-0.5.1-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.1/wittytuner-0.5.1-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.1/wittytuner-0.5.1-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.1/wittytuner-0.5.1-darwin-amd64.tar.gz",
+              "size": 6180722,
+              "sha256": "c2e2f40fa7f7cc95544bf3aff446e0b5a806c8ed28a63e98ac7724c0a59202a7"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.1/wittytuner-0.5.1-darwin-arm64.tar.gz",
+              "size": 5767133,
+              "sha256": "b3458b10a3eb9c4c2d8d15ff2b645af3b242f5afd7a0310fbd8a4b2c2f1e017d"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.1/wittytuner-0.5.1-freebsd-amd64.tar.gz",
+              "size": 6056245,
+              "sha256": "03404ee34f84ba1b5d35f86fccf8847e13a8dddfd07d3df37b98d9609890a32b"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.1/wittytuner-0.5.1-freebsd-arm64.tar.gz",
+              "size": 5535833,
+              "sha256": "d4c3b1825cd8f0c57884575c145fbb63011d091f40c8ae1fc041d6e4e91fec31"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.1/wittytuner-0.5.1-linux-386.tar.gz",
+              "size": 5906826,
+              "sha256": "36e51dbeb3f30f828b6950802029ce992e2ac4aeb7ecdacfb3844890bbcec5e6"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.1/wittytuner-0.5.1-linux-amd64.tar.gz",
+              "size": 6202437,
+              "sha256": "874a4771f4bcd3da0f60d9702fd9167dc834b87781a1a0bfda01cfdd4b23a102"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.1/wittytuner-0.5.1-linux-armv7.tar.gz",
+              "size": 5928593,
+              "sha256": "bc9e0ed08b5e939b7651f4a9239f989069e744ca62c3e32cc96009686c486fee"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.1/wittytuner-0.5.1-linux-arm64.tar.gz",
+              "size": 5667482,
+              "sha256": "93f66b30ece95900b42b11b851dff81281dcc6012a34e9372af02b98fb4a1984"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.1/wittytuner-0.5.1-windows-amd64.zip",
+              "size": 6285988,
+              "sha256": "1b515cb5bae2f6b804c295477d47f73df80855055e5ab27177a1fea2443c91a2"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.1/wittytuner-0.5.1-windows-arm64.zip",
+              "size": 5697623,
+              "sha256": "ed8ee350b7240334b4690b97bd42ea2b01a0c0f92fc421e773d442377d20cad4"
+            }
+          },
+          "ui": {
+            "pages": [
+              {
+                "id": "wittytuner",
+                "title": "Live TV & tuners"
+              },
+              {
+                "id": "wittytuner-tuner",
+                "title": "{title}"
+              },
+              {
+                "id": "wittytuner-setup",
+                "title": "Set up live TV"
+              }
+            ],
+            "sources": 6
+          },
+          "integration": {
+            "routes": 24,
+            "screens": [
+              "/tv/encrypted"
+            ],
+            "settings": [
+              "Live TV & tuners"
+            ],
+            "data": true
+          }
+        },
+        {
+          "version": "0.5.0",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "permissions": [
+            "network",
+            "programs",
+            "devices",
+            "data"
+          ],
+          "released": "2026-11-23",
+          "changelog": "**New**\n\n- **A demo tuner.** Add one in Settings, or choose Try a demo tuner while setting up, to try Live TV, the guide, recordings and WittyTV with no hardware and no internet. It has test-pattern channels with a clock, clips from a folder you pick playing in a loop, a protected channel to show how encrypted channels look, and a guide of its own. It's labelled as a demo everywhere.\n- **Matching channels to the guide.** Channels are matched to guide listings by id, name, call sign and number, and the sure matches are made for you. Match channels to the guide lists the rest with their likeliest listings, one press to take one, and a search of the whole guide. A match you choose is kept when the playlist is added again. On a TV, this page asks you to use a computer.\n- **Guide sources say how they're doing:** how many channels they cover, how far ahead the listings go, and a warning when one hasn't been read for two days or its listings are about to run out.\n- **Better IPTV playlists.** More of what providers put in their playlists is understood, such as language, country, time shift, and the user agent or referrer a channel needs. The Channels page can filter by group, country, language, hidden, no guide and missing, and show or hide every channel a filter picks.\n- **Finding network tuners** also finds one running on this computer that answers on a port other than 80.\n\n**Fixed**\n\n- **HDHomeRun network tuners play again.** On current firmware every channel was refused with \"the device's channel list points at another address\". Finding a device also asks for it by name, and when nothing is found, setup explains why that may be (the device is off or on another network, or a firewall is blocking it) and that you can type its address instead, such as 192.168.1.50 or hdhomerun.local. An older model that can't stream over the network says so.\n- **Reading a playlist again keeps your channels** when a provider changes their addresses, as many do with login tokens, along with their favourites, recordings, numbers and guide matches. A channel that disappears is kept hidden for a week in case it comes back.\n- **A channel listed twice** keeps both addresses, and the second is tried when the first won't open.\n- **The guide no longer goes empty** when two reads of the same guide happen at once.\n- **Errors say what to try:** a link that may have expired, a playlist that's out of date, a channel with nothing to play, or a guide address that can't be reached.\n- **Setting up live TV works again,** both in the first-run step and in Settings, Live TV & tuners. If WittyTuner can't be reached, setup lets you set live TV up later instead of stopping.\n- **Easier to read in every theme:** focus rings and greyed-out rows have enough contrast.",
+          "sums": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.0/wittytuner-0.5.0-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.0/wittytuner-0.5.0-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.0/wittytuner-0.5.0-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.0/wittytuner-0.5.0-darwin-amd64.tar.gz",
+              "size": 6180885,
+              "sha256": "fbfab5da82f79929adc37ba2841e328c2aaa254ac99c13a4a88896be9fac2f6f"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.0/wittytuner-0.5.0-darwin-arm64.tar.gz",
+              "size": 5766715,
+              "sha256": "9d117b95e348d42def169ae382c2136df36e5838af6c5b1772ae3afb8d74d8cf"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.0/wittytuner-0.5.0-freebsd-amd64.tar.gz",
+              "size": 6056114,
+              "sha256": "fa4ae68fb6e4a73683506aa439fbb0839c13c3f967e87fb963a0d567f2ea1426"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.0/wittytuner-0.5.0-freebsd-arm64.tar.gz",
+              "size": 5536150,
+              "sha256": "ef171a1e143242b0e2b93f57452d6666ba3835b27cef510f276276a63e0b9f12"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.0/wittytuner-0.5.0-linux-386.tar.gz",
+              "size": 5906920,
+              "sha256": "c16e9ab7c05b4404f894b72884b5c95fb9a1258705fd57d9b396817ff9989682"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.0/wittytuner-0.5.0-linux-amd64.tar.gz",
+              "size": 6202559,
+              "sha256": "af314c4726de340551f2136ffb154ade300d26b5dc13b17996eb00c6bc8cd193"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.0/wittytuner-0.5.0-linux-armv7.tar.gz",
+              "size": 5930011,
+              "sha256": "cef23c4ab098ad197a195d94a1342b61439030414a4690d159297c2dd5b166b7"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.0/wittytuner-0.5.0-linux-arm64.tar.gz",
+              "size": 5665826,
+              "sha256": "5ef7e9d928fa3eb75779af459cc01ae220b6adfd2359beca846f19ef7c2a5854"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.0/wittytuner-0.5.0-windows-amd64.zip",
+              "size": 6286319,
+              "sha256": "27beba4f62fd06fa390aa21861879bb0ce8232566826cc9f7b6094e3d064a2d2"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyTuner/releases/download/v0.5.0/wittytuner-0.5.0-windows-arm64.zip",
+              "size": 5697545,
+              "sha256": "fe01af124934ff1f29813e123e3ce2bc49e4ae49c8e920d8ecc23e999b59ed61"
+            }
+          },
+          "ui": {
+            "pages": [
+              {
+                "id": "wittytuner",
+                "title": "Live TV & tuners"
+              },
+              {
+                "id": "wittytuner-tuner",
+                "title": "{title}"
+              },
+              {
+                "id": "wittytuner-setup",
+                "title": "Set up live TV"
+              }
+            ],
+            "sources": 6
+          },
+          "integration": {
+            "routes": 24,
+            "screens": [
+              "/tv/encrypted"
+            ],
+            "settings": [
+              "Live TV & tuners"
+            ],
+            "data": true
+          }
+        },
+        {
           "version": "0.4.0",
           "delivery": "helper",
           "api": 5,
@@ -1692,6 +3368,30 @@
       "updates": "The visualizer itself: its effects and the list of them every app reads (its settings page), how it listens to the music, its controls and its look. New effects can arrive this way.",
       "stays": "Where it's shown in the audio player (the player's visualizer place) and how settings are saved per person stay with the server.",
       "versions": [
+        {
+          "version": "0.4.3",
+          "delivery": "web",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "released": "2026-11-23",
+          "changelog": "- **No computer keys on a television.** In TV mode the list of keyboard keys under the visualizer's settings is gone. The keys still work on a computer, where the list stays.",
+          "sums": "https://github.com/wittywilla/WittyVisualizer/releases/download/v0.4.3/wittyvisualizer-0.4.3-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyVisualizer/releases/download/v0.4.3/wittyvisualizer-0.4.3-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyVisualizer/releases/download/v0.4.3/wittyvisualizer-0.4.3-module.json",
+          "platforms": {
+            "all": {
+              "url": "https://github.com/wittywilla/WittyVisualizer/releases/download/v0.4.3/wittyvisualizer-0.4.3-web.tar.gz",
+              "size": 86893,
+              "sha256": "044c1d8904f34c13e4a44a3fb39db97e2bc8b20cd638ba5467533975ced50e4d"
+            }
+          },
+          "ui": {
+            "settings": true
+          },
+          "integration": {}
+        },
         {
           "version": "0.4.1",
           "delivery": "web",
