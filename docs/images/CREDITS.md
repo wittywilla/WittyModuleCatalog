@@ -4,5 +4,5 @@ Pictures taken from a test server of WittyMediaServer, filled with openly licens
 
 | Picture | What it shows |
 |---|---|
-| `module-store.webp` | What a server makes of this list: its store, here showing this catalogue. |
+| `module-store.webp` | What a server makes of this list: its store, here from a local test catalogue. |
 | `settings-modules.webp` | Settings, Modules, in WittyMediaServer. |
