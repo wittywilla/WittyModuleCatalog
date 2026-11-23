@@ -144,6 +144,8 @@ A module owns its whole feature: its routes on the server, its screens in the we
 
 `check-api.mjs` refuses a version a server installs that has no `integration`, and a summary with a field or a size a server doesn't take.
 
+**Working on a Mac?** Start with WittyMediaServer's [MAC-START-HERE.md](https://github.com/wittywilla/WittyMediaServer/blob/v0.8.1-alpha/MAC-START-HERE.md): what to install, what to clone, and every Mac task in order.
+
 ## Licence
 
 GNU Affero General Public License v3.0 (or later): see [LICENSE](LICENSE) and [NOTICE](NOTICE). If you redistribute it or build on it, please keep the NOTICE attribution. The icons are drawn by the script here.
