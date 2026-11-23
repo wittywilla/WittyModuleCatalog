@@ -117,3 +117,25 @@ jobs:
           # first, so that a catalogue naming a new icon is never there before the icon is.
           gh release upload catalog -R "$GITHUB_REPOSITORY" --clobber out/*.png
           gh release upload catalog -R "$GITHUB_REPOSITORY" --clobber out/catalog.json out/catalog.json.sig
+
+  # The website lists the catalogue's modules, but its own schedule can run an hour late, so a
+  # published catalogue starts its build. That needs SITE_BUILD_TOKEN: a fine-grained token for wittywilla/WittyMediaServer.com
+  # only, with Actions read and write and nothing else (the server's docs/PUBLISHING.md, "The
+  # website, after a release"). Without it this only says so; a failure here never fails the catalogue.
+  website:
+    needs: publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions: {}
+    steps:
+      - name: Rebuild wittymediaserver.com
+        env:
+          GH_TOKEN: ${{ secrets.SITE_BUILD_TOKEN }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::notice::No SITE_BUILD_TOKEN: the website picks this up on its own schedule"
+            exit 0
+          fi
+          gh workflow run publish.yml -R wittywilla/WittyMediaServer.com --ref main \
+            && echo "Started the website's build" \
+            || echo "::warning::Couldn't start the website's build; it picks this up on its own schedule"
