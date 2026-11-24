@@ -1,8 +1,8 @@
 {
   "format": 1,
   "name": "WittyMediaServer modules",
-  "serial": 92,
-  "generated": "2026-11-24T20:18:39Z",
+  "serial": 94,
+  "generated": "2026-11-24T23:18:40Z",
   "modules": [
     {
       "id": "wittybluray",
@@ -2600,6 +2600,328 @@
       "updates": "All of it: the console tables, the game runner, streaming, controllers, the player, and every WittyPlay screen in the web app (its frame, pages, game pictures and settings).",
       "stays": "The games library, its metadata and where saves are kept stay with the server.",
       "versions": [
+        {
+          "version": "0.7.21",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "permissions": [
+            "network",
+            "programs",
+            "devices",
+            "data"
+          ],
+          "released": "2026-11-24",
+          "changelog": "### What's fixed\n\n- **The pause menu's top is no longer cut off.** Its bar (Back and ×) is held at the top as the menu scrolls, pulled up over the menu's margin. The browser held it below that margin instead, so it covered the top of what came next: the game's name, by 17 pixels on a phone held sideways and a few on one held upright. It now sits at the very top on phones, TVs and computers, and a menu taller than the screen starts at its top rather than centred with its top out of reach. Every panel with that bar (settings, saves, controllers) had the same overlap.\n- **Why games can't use the graphics chip, said in a way that can be acted on.** In Docker, \"no usable graphics card\" now says which: no graphics device was passed into the container (add `/dev/dri` under `devices:`), the container's user can't open `/dev/dri/renderD128` (with the group number to put under `group_add:`), or the image has no OpenGL library (pull a newer one). Before, every one of these read \"no OpenGL library (libEGL) is installed\", or just \"no graphics card\".\n- **The note for a game drawn on the processor reads as what it is.** \"Playing on the server's processor, as it has no graphics card games can use. It may run a little slower.\" It was read as an error (\"No graphics card on this server…\"), though the game plays.\n\n### Developer notes\n\n- web/play.css: each `.wp-sheet-bar` rule that pulls the bar up with a negative top margin sets `top` to the same value (`-18px`, `calc(-1 * clamp(18px, 2vw, 32px))`, and the two `.wp-big` ones with the safe-area inset). A sticky box sticks inside its scroller's padding, so `top: 0` pushed it back down. `.wp-big .wp-menu` centres with `justify-content: safe center`.\n- api/renderdev_linux.go: `renderNodeReason` (no render node in a container; a render node this user can't open, with its group); `explainMissing` puts it, or the old image's missing libEGL, in place of the probe's own words in `GPUMissing`.\n- The server image gets Mesa's EGL, OpenGL and Vulkan drivers in WittyMediaServer 0.8.5-alpha (Dockerfile); without libEGL the probe found no card even with `/dev/dri` passed.",
+          "sums": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.21/wittyplay-0.7.21-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.21/wittyplay-0.7.21-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.21/wittyplay-0.7.21-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.21/wittyplay-0.7.21-darwin-amd64.tar.gz",
+              "size": 13544546,
+              "sha256": "e1a6b42c28a568f9f484ac8ebe4ff183221643aef3e3119a7749ffc3b58e259d"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.21/wittyplay-0.7.21-darwin-arm64.tar.gz",
+              "size": 12728084,
+              "sha256": "3223af704399c02ec23cb29e26e105ce8b9b6ea70f3769b93291e47543f09343"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.21/wittyplay-0.7.21-freebsd-amd64.tar.gz",
+              "size": 13196160,
+              "sha256": "dc4bfeef5f9265d9b8b85f8fcc0fffdc70b5e99e23de0221dba3b45a83161cc1"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.21/wittyplay-0.7.21-freebsd-arm64.tar.gz",
+              "size": 12103447,
+              "sha256": "69eb8d405385eb7c236202db67de546e66717ddbe990080098d9d393ebe1e0ae"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.21/wittyplay-0.7.21-linux-386.tar.gz",
+              "size": 12638712,
+              "sha256": "7441de38993252b22aff08e1ae6601941e3a9aa1a582b2e09502019e94417842"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.21/wittyplay-0.7.21-linux-amd64.tar.gz",
+              "size": 13411190,
+              "sha256": "94cdf9d739af59cc7a556f4f375ed783c9a939be97c4f46c9b593951dea89c5d"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.21/wittyplay-0.7.21-linux-armv7.tar.gz",
+              "size": 12681976,
+              "sha256": "012d4f94a6be748f3b8fbc83667ddd5a26889cef36c55778cbf41cef717aa36a"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.21/wittyplay-0.7.21-linux-arm64.tar.gz",
+              "size": 12304266,
+              "sha256": "5b0738c52ce3bd452a39bb7e06dba570f32e6bf465c59317622d110e47973dd4"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.21/wittyplay-0.7.21-windows-amd64.zip",
+              "size": 13698727,
+              "sha256": "d16611c705f52d06ad3419757431ef79667449f17338731cd11a173dde63b38c"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.21/wittyplay-0.7.21-windows-arm64.zip",
+              "size": 12421303,
+              "sha256": "af7fa05430fcbd0a53f82ecaac66c09f4095cae02afc81807edd4440660d60c3"
+            }
+          },
+          "ui": {
+            "pages": [
+              {
+                "id": "wittyplay",
+                "title": "What this server plays"
+              },
+              {
+                "id": "wittyplay-online",
+                "title": "WittyPlay Online"
+              },
+              {
+                "id": "wittyplay-controllers",
+                "title": "Controllers"
+              },
+              {
+                "id": "wittyplay-library",
+                "title": "{library}"
+              },
+              {
+                "id": "wittyplay-settings",
+                "title": "Settings"
+              },
+              {
+                "id": "wittyplay-store",
+                "title": "Cores & emulators"
+              },
+              {
+                "id": "wittyplay-store-console",
+                "title": "{title}"
+              },
+              {
+                "id": "wittyplay-setup",
+                "title": "Set up games"
+              },
+              {
+                "id": "wittyplay-quick",
+                "title": "Menu"
+              },
+              {
+                "id": "wittyplay-room",
+                "title": "Your room"
+              },
+              {
+                "id": "wittyplay-memory",
+                "title": "Memory"
+              },
+              {
+                "id": "wittyplay-keep",
+                "title": "Keep this screenshot"
+              },
+              {
+                "id": "wittyplay-privacy",
+                "title": "Friends and what you play"
+              },
+              {
+                "id": "wittyplay-kids",
+                "title": "Friends"
+              }
+            ],
+            "navigation": [
+              "Games"
+            ],
+            "settings": true,
+            "sources": 19,
+            "inserts": 2
+          },
+          "integration": {
+            "routes": 141,
+            "screens": [
+              "/wittyplay/*",
+              "/page/wittyplay",
+              "/page/wittyplay-*",
+              "/games",
+              "/game/:id",
+              "/controllers",
+              "/games/library/:id",
+              "/games/game/:id",
+              "/big/*"
+            ],
+            "settings": [
+              "Games & emulators",
+              "Game metadata",
+              "My game settings"
+            ],
+            "data": true,
+            "feature": "games",
+            "scans": [
+              "games"
+            ]
+          }
+        },
+        {
+          "version": "0.7.20",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "permissions": [
+            "network",
+            "programs",
+            "devices",
+            "data"
+          ],
+          "released": "2026-11-24",
+          "changelog": "### Security\n\n- **Libraries with known problems are updated.** Six advisories that govulncheck reported as reachable from WittyPlay's code are fixed by newer versions: the 7-Zip unpacker's Brotli and XZ decoders (`andybalholm/brotli` 1.2.7, `ulikunitz/xz` 0.5.15), `klauspost/compress` 1.20.2, `golang.org/x/net` 0.56.0, and the Docker client's tracing library (`go.opentelemetry.io/otel` 1.47.0). The sixth, in Go's own `net/http`, is fixed by building with Go 1.27.4 or later, which releases already use. Nothing else changes.",
+          "sums": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.20/wittyplay-0.7.20-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.20/wittyplay-0.7.20-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.20/wittyplay-0.7.20-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.20/wittyplay-0.7.20-darwin-amd64.tar.gz",
+              "size": 13542371,
+              "sha256": "2ce63e4712faba78cf17d0ae92ca2da5cb6c78d1f778104011e961e46ec176b2"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.20/wittyplay-0.7.20-darwin-arm64.tar.gz",
+              "size": 12713421,
+              "sha256": "34e61043050d2b231286ce98be3032576c24a4324d74d0c79a6908a68bcd4fa1"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.20/wittyplay-0.7.20-freebsd-amd64.tar.gz",
+              "size": 13195675,
+              "sha256": "edb26592bf9e4ca3f116e05107d1834233016712c3816f95d2fb3e9ef415381a"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.20/wittyplay-0.7.20-freebsd-arm64.tar.gz",
+              "size": 12117848,
+              "sha256": "3dd8f40aaad726450d980686dd422e1b99d3f02085d09d6927c33ec0bded1845"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.20/wittyplay-0.7.20-linux-386.tar.gz",
+              "size": 12636396,
+              "sha256": "67a00308ca3976799d40d8507d72ef45b3e0dab6b28521f64fb1b013d8dd79ac"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.20/wittyplay-0.7.20-linux-amd64.tar.gz",
+              "size": 13409481,
+              "sha256": "44fcf213023804391e1632f68963d70042d6d5be12d83091ce0d13a99cd80146"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.20/wittyplay-0.7.20-linux-armv7.tar.gz",
+              "size": 12679915,
+              "sha256": "30c1a8b971e8861241a4096bdc521294a43476b01fd892e58d586a7785f77320"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.20/wittyplay-0.7.20-linux-arm64.tar.gz",
+              "size": 12301574,
+              "sha256": "12b47fcb74892d68d35edf2ecf110b2ef1c043cbce4610ed69888a2ca70bf58a"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.20/wittyplay-0.7.20-windows-amd64.zip",
+              "size": 13697405,
+              "sha256": "9a2c76aa7f87099931c2c3bda7bdbdb4e5641dc4cad9239b849ac0a995d03f74"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.20/wittyplay-0.7.20-windows-arm64.zip",
+              "size": 12455361,
+              "sha256": "bd84dcb8fba21970149a1a4c1ef31eb018235a775f2d11feecd03437fa548ce2"
+            }
+          },
+          "ui": {
+            "pages": [
+              {
+                "id": "wittyplay",
+                "title": "What this server plays"
+              },
+              {
+                "id": "wittyplay-online",
+                "title": "WittyPlay Online"
+              },
+              {
+                "id": "wittyplay-controllers",
+                "title": "Controllers"
+              },
+              {
+                "id": "wittyplay-library",
+                "title": "{library}"
+              },
+              {
+                "id": "wittyplay-settings",
+                "title": "Settings"
+              },
+              {
+                "id": "wittyplay-store",
+                "title": "Cores & emulators"
+              },
+              {
+                "id": "wittyplay-store-console",
+                "title": "{title}"
+              },
+              {
+                "id": "wittyplay-setup",
+                "title": "Set up games"
+              },
+              {
+                "id": "wittyplay-quick",
+                "title": "Menu"
+              },
+              {
+                "id": "wittyplay-room",
+                "title": "Your room"
+              },
+              {
+                "id": "wittyplay-memory",
+                "title": "Memory"
+              },
+              {
+                "id": "wittyplay-keep",
+                "title": "Keep this screenshot"
+              },
+              {
+                "id": "wittyplay-privacy",
+                "title": "Friends and what you play"
+              },
+              {
+                "id": "wittyplay-kids",
+                "title": "Friends"
+              }
+            ],
+            "navigation": [
+              "Games"
+            ],
+            "settings": true,
+            "sources": 19,
+            "inserts": 2
+          },
+          "integration": {
+            "routes": 141,
+            "screens": [
+              "/wittyplay/*",
+              "/page/wittyplay",
+              "/page/wittyplay-*",
+              "/games",
+              "/game/:id",
+              "/controllers",
+              "/games/library/:id",
+              "/games/game/:id",
+              "/big/*"
+            ],
+            "settings": [
+              "Games & emulators",
+              "Game metadata",
+              "My game settings"
+            ],
+            "data": true,
+            "feature": "games",
+            "scans": [
+              "games"
+            ]
+          }
+        },
         {
           "version": "0.7.19",
           "delivery": "helper",
