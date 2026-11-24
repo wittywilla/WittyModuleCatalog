@@ -1,8 +1,8 @@
 {
   "format": 1,
   "name": "WittyMediaServer modules",
-  "serial": 90,
-  "generated": "2026-11-24T06:18:37Z",
+  "serial": 91,
+  "generated": "2026-11-24T11:53:04Z",
   "modules": [
     {
       "id": "wittybluray",
@@ -2600,6 +2600,167 @@
       "updates": "All of it: the console tables, the game runner, streaming, controllers, the player, and every WittyPlay screen in the web app (its frame, pages, game pictures and settings).",
       "stays": "The games library, its metadata and where saves are kept stay with the server.",
       "versions": [
+        {
+          "version": "0.7.18",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "permissions": [
+            "network",
+            "programs",
+            "devices",
+            "data"
+          ],
+          "released": "2026-11-24",
+          "changelog": "### What's new\n\n- **The console photos switches are easy to reach on a TV.** In setup's Games step and WittyPlay's Settings, each switch is now its whole row: one target as tall as a remote or a finger needs, and a screen reader says its name.\n- **The graphics card check no longer fails on Linux under WSL.** It answered, then the game runner crashed on its way out on about half the checks (a graphics driver thread racing the runner's tidy-up), and the server threw the answer away, so it never knew it had a card. The runner now leaves straight after answering, and an answer given in full stands however the runner ended. With no card at all the check says so, with the reason, and never crashes.\n- **N64 homebrew no longer crashes where the graphics card can't use Vulkan.** Libdragon games draw only with parallel-RDP, which needs Vulkan. On a card without it (WSL, or a driver with only the processor's Vulkan) ParaLLEl N64 fell back to an OpenGL plugin, and the 240p Test Suite stopped on its own error screen a minute in. There they now get the processor's settings, and the start screen says \"This game needs a graphics card with Vulkan on the server to show a picture.\"\n- **Nintendo 64 homebrew shows a picture on a server with a graphics card.** Games built with libdragon (most new homebrew) were always drawn by ParaLLEl N64's software renderer, which in this core draws them black. With a card they now use parallel-RDP, which draws them correctly; with no card they still can't be shown. Commercial games, on Mupen64Plus-Next, were never affected. Starting one says so on its start screen: \"This game needs a graphics card on the server to show a picture.\"\n- **On a phone, tapping a game in All games opens it.** The details panel meant only for wider screens was drawn under the games instead, with its Play button behind the dock, where a tap opened Together.\n- **A game with no cover picture can be played on a phone.** Its page drew the stand-in cover over the whole page, Play included.\n\n### Developer notes\n\n- `SwitchRow` (web/app/pages/settings/SwitchRow.tsx): a `role=\"switch\"` button with its words inside and an `aria-label`, at least 48px tall. It replaces the server's bare `Switch` (26px, named only through `aria-labelledby`), which setup's TV walk counted as a nameless button under 48px. Test: web/tests/switchrow.test.ts.",
+          "sums": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.18/wittyplay-0.7.18-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.18/wittyplay-0.7.18-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.18/wittyplay-0.7.18-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.18/wittyplay-0.7.18-darwin-amd64.tar.gz",
+              "size": 13486983,
+              "sha256": "cf69a15a0a7cab8d28db04a5adc7ba81a03d13898868d985e8d4b60ee5bcb532"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.18/wittyplay-0.7.18-darwin-arm64.tar.gz",
+              "size": 12656864,
+              "sha256": "d97697a185b98b07bb2fa3d2e6580efc189c9976ec7c1b325a49968e15c38d00"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.18/wittyplay-0.7.18-freebsd-amd64.tar.gz",
+              "size": 13131161,
+              "sha256": "6a05b44e6c9cd63179744bc40b037990d5e6ddbbe69de862c907163011dd3d09"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.18/wittyplay-0.7.18-freebsd-arm64.tar.gz",
+              "size": 12054566,
+              "sha256": "66a7f16cb4f7b4246dd0245821dc7c77e5a6f7ac32185ebb1efb3e6984030133"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.18/wittyplay-0.7.18-linux-386.tar.gz",
+              "size": 12602773,
+              "sha256": "9089bdbc99c1c12e632e311855ac453ee9972eeaf74a24e60260844eb1a651a0"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.18/wittyplay-0.7.18-linux-amd64.tar.gz",
+              "size": 13374107,
+              "sha256": "12cf0dacd0bd56ebb38c4a67116b70e08e0068f279863182e29b391f7c3c3029"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.18/wittyplay-0.7.18-linux-armv7.tar.gz",
+              "size": 12629432,
+              "sha256": "147d00db6abba01ea0c309ba4d9ffcf95d108388ed4b038fc0aa3981b4d81039"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.18/wittyplay-0.7.18-linux-arm64.tar.gz",
+              "size": 12266000,
+              "sha256": "5090ad90165a06485bbf63eba89516d9e2068a9db74be5a0d0780cb356b613b0"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.18/wittyplay-0.7.18-windows-amd64.zip",
+              "size": 13650983,
+              "sha256": "18879c870c1c58d134e0e66267518b0591339d51d1b4a24bf5038bebf168e6f2"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.18/wittyplay-0.7.18-windows-arm64.zip",
+              "size": 12356342,
+              "sha256": "df7f344e68cbb7e170cee01e78bed0ce41090ff9552699f337dd40cfbd342b07"
+            }
+          },
+          "ui": {
+            "pages": [
+              {
+                "id": "wittyplay",
+                "title": "What this server plays"
+              },
+              {
+                "id": "wittyplay-online",
+                "title": "WittyPlay Online"
+              },
+              {
+                "id": "wittyplay-controllers",
+                "title": "Controllers"
+              },
+              {
+                "id": "wittyplay-library",
+                "title": "{library}"
+              },
+              {
+                "id": "wittyplay-settings",
+                "title": "Settings"
+              },
+              {
+                "id": "wittyplay-store",
+                "title": "Cores & emulators"
+              },
+              {
+                "id": "wittyplay-store-console",
+                "title": "{title}"
+              },
+              {
+                "id": "wittyplay-setup",
+                "title": "Set up games"
+              },
+              {
+                "id": "wittyplay-quick",
+                "title": "Menu"
+              },
+              {
+                "id": "wittyplay-room",
+                "title": "Your room"
+              },
+              {
+                "id": "wittyplay-memory",
+                "title": "Memory"
+              },
+              {
+                "id": "wittyplay-keep",
+                "title": "Keep this screenshot"
+              },
+              {
+                "id": "wittyplay-privacy",
+                "title": "Friends and what you play"
+              },
+              {
+                "id": "wittyplay-kids",
+                "title": "Friends"
+              }
+            ],
+            "navigation": [
+              "Games"
+            ],
+            "settings": true,
+            "sources": 19,
+            "inserts": 2
+          },
+          "integration": {
+            "routes": 141,
+            "screens": [
+              "/wittyplay/*",
+              "/page/wittyplay",
+              "/page/wittyplay-*",
+              "/games",
+              "/game/:id",
+              "/controllers",
+              "/games/library/:id",
+              "/games/game/:id",
+              "/big/*"
+            ],
+            "settings": [
+              "Games & emulators",
+              "Game metadata",
+              "My game settings"
+            ],
+            "data": true,
+            "feature": "games",
+            "scans": [
+              "games"
+            ]
+          }
+        },
         {
           "version": "0.7.14",
           "delivery": "helper",
