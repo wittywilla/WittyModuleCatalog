@@ -1,8 +1,8 @@
 {
   "format": 1,
   "name": "WittyMediaServer modules",
-  "serial": 97,
-  "generated": "2026-11-25T00:53:35Z",
+  "serial": 98,
+  "generated": "2026-11-25T04:26:35Z",
   "modules": [
     {
       "id": "wittybluray",
@@ -2072,6 +2072,30 @@
       "updates": "The PDF reader itself: zoom, outline, thumbnails, search, study tools and its look.",
       "stays": "pdf.js and its worker, which do the actual reading, stay with the app so it isn't carried twice.",
       "versions": [
+        {
+          "version": "0.4.5",
+          "delivery": "web",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "released": "2026-11-25",
+          "changelog": "- **Fixed:** apps that check WittyPDF's types (WittyReader) build again with pdf.js 6.5.438. The reader no longer passes pdf.js an option it dropped; fonts still never run as code.",
+          "sums": "https://github.com/wittywilla/WittyPDF/releases/download/v0.4.5/wittypdf-0.4.5-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyPDF/releases/download/v0.4.5/wittypdf-0.4.5-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyPDF/releases/download/v0.4.5/wittypdf-0.4.5-module.json",
+          "platforms": {
+            "all": {
+              "url": "https://github.com/wittywilla/WittyPDF/releases/download/v0.4.5/wittypdf-0.4.5-web.tar.gz",
+              "size": 36480,
+              "sha256": "00e2fbcedf6d74f8020c2d2ebfab3e5eba6b47470d85c0c74752d3b190c69211"
+            }
+          },
+          "ui": {
+            "settings": true
+          },
+          "integration": {}
+        },
         {
           "version": "0.4.4",
           "delivery": "web",
