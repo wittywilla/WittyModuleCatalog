@@ -1,8 +1,8 @@
 {
   "format": 1,
   "name": "WittyMediaServer modules",
-  "serial": 98,
-  "generated": "2026-11-25T04:26:35Z",
+  "serial": 99,
+  "generated": "2026-11-25T10:38:06Z",
   "modules": [
     {
       "id": "wittybluray",
@@ -2725,6 +2725,167 @@
       "updates": "All of it: the console tables, the game runner, streaming, controllers, the player, and every WittyPlay screen in the web app (its frame, pages, game pictures and settings).",
       "stays": "The games library, its metadata and where saves are kept stay with the server.",
       "versions": [
+        {
+          "version": "0.7.23",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "permissions": [
+            "network",
+            "programs",
+            "devices",
+            "data"
+          ],
+          "released": "2026-11-25",
+          "changelog": "### What's fixed\n\n- **Settings, Controllers stays inside Settings.** Opened from the server's Settings menu, it is drawn in the page beside the menu, which stays in place, instead of covering the whole window (WittyMediaServer 0.8.6, #763). Opened any other way, it is as it was. Its list of what to set (Buttons, Players, Profiles, Background) scrolls with the page there, rather than sliding under the top bar.\n- **Recent can be clicked into again, the same way as Consoles and All games.** Moving the mouse across Recent's games kept changing which one was chosen, and the chosen one grows, so the game under the pointer moved and a click landed on another. That was fixed for Consoles and All games here, and for Recent in the server (0.8.1-alpha), where a later change undid it; it's back in WittyMediaServer 0.8.6. Everywhere now, a pointer only points: a click chooses a game, and a second click, a double-click or Enter opens it, while the arrows, a remote and a pad move the choice as before.\n- **All games' details say how to choose a game:** \"Click a game, or move to one\", not \"Point at a game\".\n\n### Developer notes\n\n- web/play.css: `.set-opened .wp-page`, `.wps` and `.wps-head` put the page in the flow of the server's Settings column (the server's `set-opened`, WittyMediaServer `pages/settings/open.ts`): not fixed over the window, no sticky heading.\n- web/app/pointerChoose.ts is the rule in one place (`clickOpens`, `pressTracker`), with `useChooseThenOpen` (web/app/useChooseThenOpen.ts) for components. Consoles and All games use it in place of their own copies, which had drifted (All games opened only on a single click of the chosen game, not on a double-click). The server's rows use the same rule (its web/src/ui/pointerChoose.ts). web/pointerChoose.test.mjs tests the rule, and fails if a grid chooses on hover.",
+          "sums": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.23/wittyplay-0.7.23-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.23/wittyplay-0.7.23-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.23/wittyplay-0.7.23-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.23/wittyplay-0.7.23-darwin-amd64.tar.gz",
+              "size": 13535687,
+              "sha256": "a9368dfba12b0c54ca1f530681504dafa23168e7de245d7e49519c262c72c4f9"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.23/wittyplay-0.7.23-darwin-arm64.tar.gz",
+              "size": 12695422,
+              "sha256": "a5bfdfc80c9232f862c42d6e099be457d3fa9e13e27b95546ff55af1435075f9"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.23/wittyplay-0.7.23-freebsd-amd64.tar.gz",
+              "size": 13185385,
+              "sha256": "efbf785a693d49f8a881a42cba5b1881d56b9bbf842c2fa68636b85e71d57705"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.23/wittyplay-0.7.23-freebsd-arm64.tar.gz",
+              "size": 12108796,
+              "sha256": "ba2834a4601a1d959c631ce88975961f05de83ee5839e77d5575344a73a1bf45"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.23/wittyplay-0.7.23-linux-386.tar.gz",
+              "size": 12642914,
+              "sha256": "68f3263f7c3055792329e06ffa8c413aa20d9a3b22bf32bfe61951cb5627ca4f"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.23/wittyplay-0.7.23-linux-amd64.tar.gz",
+              "size": 13410181,
+              "sha256": "b4def292ab02ad707e873b82428ff63808961ccf741a50e89880d6d1ca800b13"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.23/wittyplay-0.7.23-linux-armv7.tar.gz",
+              "size": 12670791,
+              "sha256": "9334ea23476284fc74e3158687c80e1bb399afb3e976a9e741175f80169229dd"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.23/wittyplay-0.7.23-linux-arm64.tar.gz",
+              "size": 12321782,
+              "sha256": "e37b1d575bc56a843d3a4ee59a5c7b275a7b931205fe3f07830b08e53168410f"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.23/wittyplay-0.7.23-windows-amd64.zip",
+              "size": 13695807,
+              "sha256": "1fe93c66c219af92755cd5f9cc4b6843cd4645b51ee824a8ef579318855f4ef0"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.23/wittyplay-0.7.23-windows-arm64.zip",
+              "size": 12418387,
+              "sha256": "549bef62cb3c9b1f243a91e7d5fe666cdc4dcfb240079e68db01081fb57ca584"
+            }
+          },
+          "ui": {
+            "pages": [
+              {
+                "id": "wittyplay",
+                "title": "What this server plays"
+              },
+              {
+                "id": "wittyplay-online",
+                "title": "WittyPlay Online"
+              },
+              {
+                "id": "wittyplay-controllers",
+                "title": "Controllers"
+              },
+              {
+                "id": "wittyplay-library",
+                "title": "{library}"
+              },
+              {
+                "id": "wittyplay-settings",
+                "title": "Settings"
+              },
+              {
+                "id": "wittyplay-store",
+                "title": "Cores & emulators"
+              },
+              {
+                "id": "wittyplay-store-console",
+                "title": "{title}"
+              },
+              {
+                "id": "wittyplay-setup",
+                "title": "Set up games"
+              },
+              {
+                "id": "wittyplay-quick",
+                "title": "Menu"
+              },
+              {
+                "id": "wittyplay-room",
+                "title": "Your room"
+              },
+              {
+                "id": "wittyplay-memory",
+                "title": "Memory"
+              },
+              {
+                "id": "wittyplay-keep",
+                "title": "Keep this screenshot"
+              },
+              {
+                "id": "wittyplay-privacy",
+                "title": "Friends and what you play"
+              },
+              {
+                "id": "wittyplay-kids",
+                "title": "Friends"
+              }
+            ],
+            "navigation": [
+              "Games"
+            ],
+            "settings": true,
+            "sources": 19,
+            "inserts": 2
+          },
+          "integration": {
+            "routes": 141,
+            "screens": [
+              "/wittyplay/*",
+              "/page/wittyplay",
+              "/page/wittyplay-*",
+              "/games",
+              "/game/:id",
+              "/controllers",
+              "/games/library/:id",
+              "/games/game/:id",
+              "/big/*"
+            ],
+            "settings": [
+              "Games & emulators",
+              "Game metadata",
+              "My game settings"
+            ],
+            "data": true,
+            "feature": "games",
+            "scans": [
+              "games"
+            ]
+          }
+        },
         {
           "version": "0.7.22",
           "delivery": "helper",
