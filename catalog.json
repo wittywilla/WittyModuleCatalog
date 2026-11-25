@@ -1,8 +1,8 @@
 {
   "format": 1,
   "name": "WittyMediaServer modules",
-  "serial": 94,
-  "generated": "2026-11-24T23:18:40Z",
+  "serial": 97,
+  "generated": "2026-11-25T00:53:35Z",
   "modules": [
     {
       "id": "wittybluray",
@@ -2169,6 +2169,107 @@
       "stays": "Scanning photo libraries and keeping what EXIF says, the pictures themselves, uploads and share links stay the server's.",
       "versions": [
         {
+          "version": "0.5.6",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "permissions": [
+            "network",
+            "data"
+          ],
+          "released": "2026-11-25",
+          "changelog": "- **Nothing on the timeline slides under the top bar.** The selection bar and the \"Jump to a year\" list stick below the bar however tall it is, the floating glass bar included, using the room the bar measures (`--bar-space`) instead of a fixed 64 or 76 pixels. Older servers keep the old numbers.",
+          "sums": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.6/wittyphotos-0.5.6-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.6/wittyphotos-0.5.6-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.6/wittyphotos-0.5.6-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.6/wittyphotos-0.5.6-darwin-amd64.tar.gz",
+              "size": 5801288,
+              "sha256": "e7bc6f0c7ee6077e4e765dedcdd386a0d8b9a5c088be85bc2427753a8b501ddd"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.6/wittyphotos-0.5.6-darwin-arm64.tar.gz",
+              "size": 5415682,
+              "sha256": "aed736d0197e0b934fe01f50cd387d6711f5563411dff3dc0524cf8ffc3d2624"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.6/wittyphotos-0.5.6-freebsd-amd64.tar.gz",
+              "size": 5683449,
+              "sha256": "f9da7b17ad96e12132723d164d98bda9c3de72fe012f3dc5f53727be3ed11628"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.6/wittyphotos-0.5.6-freebsd-arm64.tar.gz",
+              "size": 5193801,
+              "sha256": "4240c1fd1f99ea7c9dbf475c40c8102887bed29b27be9d5ffc90b25829421efb"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.6/wittyphotos-0.5.6-linux-386.tar.gz",
+              "size": 5540436,
+              "sha256": "4cdbf9bea1fb904d2b19da3be94883d0a54402ad1095dcd32020d0165c998017"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.6/wittyphotos-0.5.6-linux-amd64.tar.gz",
+              "size": 5806435,
+              "sha256": "00f1b01eab3ff0b052b76922d3d14169730c32f78865239cdabb26c2236169d0"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.6/wittyphotos-0.5.6-linux-armv7.tar.gz",
+              "size": 5556573,
+              "sha256": "973a546907c2c1847d15f47848e6da6ade4c96d717a87bd5a4a9d80554433a82"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.6/wittyphotos-0.5.6-linux-arm64.tar.gz",
+              "size": 5308679,
+              "sha256": "46635f6f6447b41ade6a854db175e7cbd6f535a4a442b74a769861b69fa3a246"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.6/wittyphotos-0.5.6-windows-amd64.zip",
+              "size": 5890224,
+              "sha256": "50e2c1089c667a966f639bbc4322baa226416ff061a529dd657dfe1cbafea03f"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyPhotos/releases/download/v0.5.6/wittyphotos-0.5.6-windows-arm64.zip",
+              "size": 5326373,
+              "sha256": "c60ebdbfc5839c274f875cc2370a9d87291f9f03c3dca12fab4c2fe53e45afa7"
+            }
+          },
+          "ui": {
+            "pages": [
+              {
+                "id": "wittyphotos-library",
+                "title": "{library}"
+              },
+              {
+                "id": "wittyphotos",
+                "title": "Photos"
+              },
+              {
+                "id": "wittyphotos-albums",
+                "title": "{title}"
+              },
+              {
+                "id": "wittyphotos-album",
+                "title": "{title}"
+              }
+            ],
+            "navigation": [
+              "Photos"
+            ],
+            "settings": true,
+            "sources": 2
+          },
+          "integration": {
+            "routes": 4,
+            "screens": [
+              "/photos/library/:id"
+            ],
+            "data": true
+          }
+        },
+        {
           "version": "0.5.5",
           "delivery": "helper",
           "api": 5,
@@ -2600,6 +2701,167 @@
       "updates": "All of it: the console tables, the game runner, streaming, controllers, the player, and every WittyPlay screen in the web app (its frame, pages, game pictures and settings).",
       "stays": "The games library, its metadata and where saves are kept stay with the server.",
       "versions": [
+        {
+          "version": "0.7.22",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "permissions": [
+            "network",
+            "programs",
+            "devices",
+            "data"
+          ],
+          "released": "2026-11-25",
+          "changelog": "### What's fixed\n\n- **Nothing on the Games pages slides under the top bar.** A game's backdrop, a section a link jumps to, the on-screen keyboard's side panel and the screen preview sit below the bar however tall it is, the floating glass bar included, using the room the bar measures (`--bar-space`) instead of a fixed height. Older servers keep the old numbers.\n- **Settings pages on the server look as the server draws them** (#121). WittyPlay's bundle carried an old copy of the\n  server's settings stylesheet, and once WittyPlay was installed it restyled every Settings page, core ones too: each\n  page's title and lead sat off to one side of what was under them, and the settings menu slid under the top bar. The\n  copy is gone: WittyPlay's settings pages use the server's own, and only WittyPlay's console photos switch is styled\n  here. A test (`web/hostcss.test.mjs`) fails on any rule of this module's for the server's Settings frame.\n- **Settings, Controllers keeps its heading below the top bar** as the page scrolls, not under it (#121).\n- **Settings, Games keeps its picture preview below the top bar** as the page scrolls, in every layout, not 2 to 25 pixels under a taller bar (#121).\n\n### Docs\n\n- **The README's pictures show 0.7.18**, on a computer, a phone and a TV.\n\n### Developer notes\n\n- web/app/pages/settings/settings.css keeps only the `.wplay-photos*` rules; the rest was a copy of the server's own. web/play.css: `.wp-page .wps-head`, and `.wp-screen-preview` when nothing sets `--wp-screen-top`, stick at `var(--bar-space, var(--topbar-h, 0px))`, the top bar's measured height.\n- web/hostcss.test.mjs, run by `npm test`, fails on a rule for `.set-shell`, `.set-nav`, `.set-main`, `.set-head`, `.set-toc`, `.set-card`, `.set-back`, `.set-help` or `.sm-*` that isn't scoped inside one of WittyPlay's own classes.",
+          "sums": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.22/wittyplay-0.7.22-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.22/wittyplay-0.7.22-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.22/wittyplay-0.7.22-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.22/wittyplay-0.7.22-darwin-amd64.tar.gz",
+              "size": 13533575,
+              "sha256": "20123dda94f124d5a10d7ef083cd404748541a480ec2d64610a7cf4326ef1d1f"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.22/wittyplay-0.7.22-darwin-arm64.tar.gz",
+              "size": 12726106,
+              "sha256": "1310a1f21a43e1538c13e22ef7a030479ebb51199b86ca91fb9b52a99bb32791"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.22/wittyplay-0.7.22-freebsd-amd64.tar.gz",
+              "size": 13184758,
+              "sha256": "929667d56c4cb82727392934de62d7650af77038b830922e58d0f07f0faea0c6"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.22/wittyplay-0.7.22-freebsd-arm64.tar.gz",
+              "size": 12094015,
+              "sha256": "53c03fa7ec699efe8bc992c5ab9a8e15a5be20e1d6ad1b3cd8e1e850c3e793ea"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.22/wittyplay-0.7.22-linux-386.tar.gz",
+              "size": 12638435,
+              "sha256": "e37d98c56f5d97ebebc34060afa6e9a9f87c70e3bf02dfdec246b128ee781acc"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.22/wittyplay-0.7.22-linux-amd64.tar.gz",
+              "size": 13410129,
+              "sha256": "c846c2ea253660a32c049f49ee195ba3c43e917fa9fbac808f3d769351a33012"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.22/wittyplay-0.7.22-linux-armv7.tar.gz",
+              "size": 12694045,
+              "sha256": "58a927029eefe91d06c542ee8239f51fd3ef665c7668e8ac87b923d621640c2d"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.22/wittyplay-0.7.22-linux-arm64.tar.gz",
+              "size": 12306953,
+              "sha256": "e3fc21f07d3b4c99f5e49c8f89af5fe2f203fabf10fa80163e274959b3987ac1"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.22/wittyplay-0.7.22-windows-amd64.zip",
+              "size": 13695531,
+              "sha256": "c97e61fcc8483b0ae91b01500a3befe1248e7e0dc709e24581ef73f0c50b3c5d"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyPlay/releases/download/v0.7.22/wittyplay-0.7.22-windows-arm64.zip",
+              "size": 12418108,
+              "sha256": "d71c547a45968a9336fff92a605652a358c173d6490d223ccf657e8f70d40b73"
+            }
+          },
+          "ui": {
+            "pages": [
+              {
+                "id": "wittyplay",
+                "title": "What this server plays"
+              },
+              {
+                "id": "wittyplay-online",
+                "title": "WittyPlay Online"
+              },
+              {
+                "id": "wittyplay-controllers",
+                "title": "Controllers"
+              },
+              {
+                "id": "wittyplay-library",
+                "title": "{library}"
+              },
+              {
+                "id": "wittyplay-settings",
+                "title": "Settings"
+              },
+              {
+                "id": "wittyplay-store",
+                "title": "Cores & emulators"
+              },
+              {
+                "id": "wittyplay-store-console",
+                "title": "{title}"
+              },
+              {
+                "id": "wittyplay-setup",
+                "title": "Set up games"
+              },
+              {
+                "id": "wittyplay-quick",
+                "title": "Menu"
+              },
+              {
+                "id": "wittyplay-room",
+                "title": "Your room"
+              },
+              {
+                "id": "wittyplay-memory",
+                "title": "Memory"
+              },
+              {
+                "id": "wittyplay-keep",
+                "title": "Keep this screenshot"
+              },
+              {
+                "id": "wittyplay-privacy",
+                "title": "Friends and what you play"
+              },
+              {
+                "id": "wittyplay-kids",
+                "title": "Friends"
+              }
+            ],
+            "navigation": [
+              "Games"
+            ],
+            "settings": true,
+            "sources": 19,
+            "inserts": 2
+          },
+          "integration": {
+            "routes": 141,
+            "screens": [
+              "/wittyplay/*",
+              "/page/wittyplay",
+              "/page/wittyplay-*",
+              "/games",
+              "/game/:id",
+              "/controllers",
+              "/games/library/:id",
+              "/games/game/:id",
+              "/big/*"
+            ],
+            "settings": [
+              "Games & emulators",
+              "Game metadata",
+              "My game settings"
+            ],
+            "data": true,
+            "feature": "games",
+            "scans": [
+              "games"
+            ]
+          }
+        },
         {
           "version": "0.7.21",
           "delivery": "helper",
@@ -4238,6 +4500,108 @@
       "updates": "All of it: game rigs (adding, pairing, their games and playing them), this server's own Sunshine, the in-page stream of a rig's game, and their screens on every app.",
       "stays": "A rig's games library and its games stay ordinary libraries and items of the server's, so every access rule applies to them.",
       "versions": [
+        {
+          "version": "0.4.4",
+          "delivery": "helper",
+          "api": 5,
+          "minServer": "0.8.0-alpha",
+          "maxServer": "0.8.x",
+          "license": "AGPL-3.0-or-later",
+          "permissions": [
+            "network",
+            "programs",
+            "data"
+          ],
+          "released": "2026-11-25",
+          "changelog": "- **Nothing on the game PC pages slides under the top bar.** A backdrop, a section a link jumps to and the on-screen keyboard's side panel sit below the bar however tall it is, using the room the bar measures (`--bar-space`) instead of a fixed height. Older servers keep the old numbers.",
+          "sums": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.4/wittyrigs-0.4.4-SHA256SUMS.txt",
+          "sig": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.4/wittyrigs-0.4.4-SHA256SUMS.txt.sig",
+          "manifest": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.4/wittyrigs-0.4.4-module.json",
+          "platforms": {
+            "darwin-amd64": {
+              "url": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.4/wittyrigs-0.4.4-darwin-amd64.tar.gz",
+              "size": 7763217,
+              "sha256": "4acf1dc3365354d46f5a936ce2cb4cd8ffb59190c1e6ff3ec88cf01a2c395464"
+            },
+            "darwin-arm64": {
+              "url": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.4/wittyrigs-0.4.4-darwin-arm64.tar.gz",
+              "size": 7226479,
+              "sha256": "e878cf26776ba1d984d5dc92099cf0e0900b4352f85f6cd78885f7ee26f5b7c0"
+            },
+            "freebsd-amd64": {
+              "url": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.4/wittyrigs-0.4.4-freebsd-amd64.tar.gz",
+              "size": 7613377,
+              "sha256": "dc0b9bff3a46fa30ccf1a6084f4250c19003fa546a7a53730518bd6ed00fb9cf"
+            },
+            "freebsd-arm64": {
+              "url": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.4/wittyrigs-0.4.4-freebsd-arm64.tar.gz",
+              "size": 6939078,
+              "sha256": "de296ae1a47e78823a61ecba190f56a059190b6538523e84f35dd8e536faccd7"
+            },
+            "linux-386": {
+              "url": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.4/wittyrigs-0.4.4-linux-386.tar.gz",
+              "size": 7328742,
+              "sha256": "fa702e895c97e15149c768e3b9a0ffd251829ec6d57679a9d2ead04d149f1315"
+            },
+            "linux-amd64": {
+              "url": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.4/wittyrigs-0.4.4-linux-amd64.tar.gz",
+              "size": 7759239,
+              "sha256": "97bf7098feb142cedefca0c7242602d372eece081bc26706844d813772d977a8"
+            },
+            "linux-arm": {
+              "url": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.4/wittyrigs-0.4.4-linux-armv7.tar.gz",
+              "size": 7350283,
+              "sha256": "5f9e3aa89ca55935d80b81ea480328a5f40b3ab37c64ebbce669634bd0d35d47"
+            },
+            "linux-arm64": {
+              "url": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.4/wittyrigs-0.4.4-linux-arm64.tar.gz",
+              "size": 7065274,
+              "sha256": "f8c4f89de0016d15cfbf66564fec378ca027dcbb0fa7b306e12f70dca0cd8cd0"
+            },
+            "windows-amd64": {
+              "url": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.4/wittyrigs-0.4.4-windows-amd64.zip",
+              "size": 7865475,
+              "sha256": "3493505e7de28e0a84115e13c5874e64aeb666222bb6ddf26cf8c77ad0ba58bc"
+            },
+            "windows-arm64": {
+              "url": "https://github.com/wittywilla/WittyRigs/releases/download/v0.4.4/wittyrigs-0.4.4-windows-arm64.zip",
+              "size": 7087597,
+              "sha256": "23c4e3802d4bd2d1d4d1f49903e7f00c617427274370b84bdfba73d16f5aef40"
+            }
+          },
+          "ui": {
+            "pages": [
+              {
+                "id": "wittyrigs",
+                "title": "Game rigs"
+              },
+              {
+                "id": "wittyrigs-rig",
+                "title": "{title}"
+              },
+              {
+                "id": "wittyrigs-local",
+                "title": "This server's Sunshine"
+              }
+            ],
+            "settings": true,
+            "sources": 4
+          },
+          "integration": {
+            "routes": 17,
+            "screens": [
+              "/rigs/library/:id",
+              "/rigs/game/:id",
+              "/rigs/play/:id"
+            ],
+            "settings": [
+              "Game rigs",
+              "WittyRigs"
+            ],
+            "data": true,
+            "feature": "games"
+          }
+        },
         {
           "version": "0.4.3",
           "delivery": "helper",
